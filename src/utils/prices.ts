@@ -58,7 +58,7 @@ export function computeTradePriceBreakdown(
   }
 }
 
-// calculates teh protocol fee for a pair and amount
+// calculates the protocol fee for a pair and amount
 export function calculateProtocolFee(
   pair: Pair | null | undefined,
   amount?: CurrencyAmount,

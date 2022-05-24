@@ -24,7 +24,7 @@ export const injected = new InjectedConnector({
 export const walletlink = new WalletLinkConnector({
   supportedChainIds: [ChainId.MAINNET, ChainId.RINKEBY, ChainId.XDAI, ChainId.MATIC, ChainId.CANDLE],
   url: 'https://poa-xdai.gateway.pokt.network/v1/lb/61140fc659501900341babff',
-  appName: 'Honeyswap'
+  appName: 'CandleDEX'
 })
 
 // xdai only
@@ -50,7 +50,7 @@ export const walletConnectMATIC = new WalletConnectConnector({
 // candle only
 export const walletConnectCANDLE = new WalletConnectConnector({
   rpc: {
-    137: 'https://rpc.cndlchain.com/'
+    534: 'https://rpc.cndlchain.com/'
   },
   bridge: 'https://polygon.bridge.walletconnect.org',
   qrcode: true

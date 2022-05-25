@@ -45,6 +45,15 @@ export const tokens = [
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png'
   },
   {
+    name: 'Shiba Inu',
+    address: '0xa018034190943D6c8E10218d9F8E8Af491272411',
+    symbol: 'SHIBA',
+    decimals: 18,
+    chainId: 534,
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png'
+  },
+  {
     name: 'DXDao',
     address: '0x554898A0BF98aB0C03ff86C7DccBE29269cc4d29',
     symbol: 'DXD',

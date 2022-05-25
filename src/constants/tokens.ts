@@ -46,7 +46,7 @@ export const tokens = [
   },
   {
     name: 'Wrapped Ether',
-    address: '0xd0A1E359811322d97991E03f863a0C30C2cF029C', // need to update contract address to Candle one when deployed
+    address: '0xb750990F953B36F806d0327678eCFB4eEFd16979', // need to update contract address to Candle one when deployed
     symbol: 'WETH',
     decimals: 18,
     chainId: 534,

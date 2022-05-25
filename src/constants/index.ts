@@ -20,7 +20,7 @@ export const DAI: { [key: number]: Token } = {
   ),
   [ChainId.XDAI]: new Token(ChainId.XDAI, '0x44fa8e6f47987339850636f88629646662444217', 18, 'DAI', 'Dai Stablecoin'),
   [ChainId.MATIC]: new Token(ChainId.MATIC, '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063', 18, 'DAI', 'Dai Stablecoin'),
-  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063', 18, 'DAI', 'Dai Stablecoin')
+  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0xad43669cbAC863e33449d423261E525de8da0Ff4', 18, 'DAI', 'Dai Stablecoin') // updted Dai address for Candle. Need to verify
 }
 
 export const USDC: { [key: number]: Token } = {

@@ -107,18 +107,18 @@ export default function MobileOptions({ history }: { history: any }) {
             </StyledNavLink>
           </Box>
           <Box>
-            <StyledExternalLink id={`stake-nav-link`} href={'https://1hive.org/'}>
-              Governance <span style={{ fontSize: '11px' }}>↗</span>
+            <StyledExternalLink id={`stake-nav-link`} href={'https://candledex.com/'}>
+              Governance (WIP)<span style={{ fontSize: '11px' }}>↗</span>
             </StyledExternalLink>
           </Box>
           <Box>
-            <StyledExternalLink id={`stake-nav-link`} href={'https://1hive.io/'}>
-              Farms <span style={{ fontSize: '11px' }}>↗</span>
+            <StyledExternalLink id={`stake-nav-link`} href={'https://candledex.com/'}>
+              Farms (WIP) <span style={{ fontSize: '11px' }}>↗</span>
             </StyledExternalLink>
           </Box>
           <Box>
-            <StyledExternalLink id={`stake-nav-link`} href={'https://info.honeyswap.org/'}>
-              Charts <span style={{ fontSize: '11px' }}>↗</span>
+            <StyledExternalLink id={`stake-nav-link`} href={'https://info.candledex.com/'}>
+              Charts (WIP) <span style={{ fontSize: '11px' }}>↗</span>
             </StyledExternalLink>
           </Box>
         </Wrapper>

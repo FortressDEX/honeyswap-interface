@@ -11,7 +11,7 @@ import {
   Currency,
   _10000,
   _100
-} from 'bxswap-sdk'
+} from 'dxswap-sdk'
 import { ALLOWED_PRICE_IMPACT_HIGH, ALLOWED_PRICE_IMPACT_LOW, ALLOWED_PRICE_IMPACT_MEDIUM } from '../constants'
 import { Field } from '../state/swap/actions'
 import { basisPointsToPercent } from './index'
@@ -58,7 +58,7 @@ export function computeTradePriceBreakdown(
   }
 }
 
-// calculates teh protocol fee for a pair and amount
+// calculates the protocol fee for a pair and amount
 export function calculateProtocolFee(
   pair: Pair | null | undefined,
   amount?: CurrencyAmount,

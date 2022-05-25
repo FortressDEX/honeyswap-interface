@@ -1,8 +1,8 @@
 {
-  "short_name": "Honeyswap",
-  "name": "Honeyswap",
+  "short_name": "CandleDEX",
+  "name": "CandleDEX",
   "iconPath": "./images/512x512_App_Icon.png",
-  "description": "Decentralized exchange built by 1Hive DAO",
+  "description": "Decentralized exchange built by Candle DAO",
   "icons": [
     {
       "src": "./images/192x192_App_Icon.png",

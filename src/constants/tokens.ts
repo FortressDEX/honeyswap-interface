@@ -45,6 +45,15 @@ export const tokens = [
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png'
   },
   {
+    name: 'Wrapped Ether',
+    address: '0xd0A1E359811322d97991E03f863a0C30C2cF029C', // need to update contract address to Candle one when deployed
+    symbol: 'WETH',
+    decimals: 18,
+    chainId: 534,
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png'
+  },
+  {
     name: 'Shiba Inu',
     address: '0xa018034190943D6c8E10218d9F8E8Af491272411',
     symbol: 'SHIBA',

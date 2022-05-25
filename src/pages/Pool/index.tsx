@@ -179,7 +179,7 @@ export default function Pool() {
                   the pool.
                   <br /> Fees are added to the pool, accrue in real time and can be claimed by withdrawing your
                   liquidity.
-                  <br /> Another 0.05% is converted to Honey and sent to the common pool periodically.
+                  <br /> Another 0.05% is converted to Candle and sent to the common pool periodically.
                 </TYPE.body>
               </RowBetween>
               {/*<RowBetween>*/}

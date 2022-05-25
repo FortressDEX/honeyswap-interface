@@ -45,7 +45,7 @@ export const tokens = [
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png'
   },
   {
-    name: 'Wrapped Ether',
+    name: 'Wrapped Ether', // is this needed / redundant?
     address: '0xb750990F953B36F806d0327678eCFB4eEFd16979', // need to update contract address to Candle one when deployed
     symbol: 'WETH',
     decimals: 18,

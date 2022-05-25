@@ -125,6 +125,14 @@ export const BRIGHT = new Token(
   'Bright from Ethereum'
 )
 
+export const SHIBA = new Token(
+  ChainId.CANDLE,
+  '0xa018034190943D6c8E10218d9F8E8Af491272411',
+  18,
+  'SHIBA',
+  'Shiba Inu from Ethereum'
+)
+
 export const WORK = new Token(
   ChainId.XDAI,
   '0xA187153C9E2bbAdEe5782D6b604cb1007bc6a86A',
@@ -173,7 +181,17 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     SURF,
     WAVE
   ],
-  [ChainId.CANDLE]: [WETH[ChainId.CANDLE], SURF, WAVE]
+  [ChainId.CANDLE]: [
+    WETH[ChainId.CANDLE],
+    WCNDL[ChainId.CANDLE],
+  //  HONEY[ChainId.MATIC],
+    DAI[ChainId.CANDLE],
+    SHIBA
+  //  USDC[ChainId.MATIC],
+  //  USDT[ChainId.MATIC],
+//    SURF,
+//    WAVE
+  ]
 }
 
 // used for display in the default list when adding liquidity (native currency is already shown
@@ -185,7 +203,7 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.SOKOL]: [],
   [ChainId.XDAI]: [WETH[ChainId.XDAI], USDC[ChainId.XDAI], HONEY[ChainId.XDAI]],
   [ChainId.MATIC]: [WETH[ChainId.MATIC], HONEY[ChainId.MATIC]],
-  [ChainId.CANDLE]: [WETH[ChainId.CANDLE], HONEY[ChainId.CANDLE]]
+  [ChainId.CANDLE]: [WETH[ChainId.CANDLE], DAI[ChainId.CANDLE]]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -204,12 +222,13 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     USDT[ChainId.MATIC]
   ],
   [ChainId.CANDLE]: [
-    WMATIC[ChainId.CANDLE],
+    WCNDL[ChainId.CANDLE],
     WETH[ChainId.CANDLE],
-    HONEY[ChainId.CANDLE],
+  //  HONEY[ChainId.CANDLE],
     DAI[ChainId.CANDLE],
-    USDC[ChainId.CANDLE],
-    USDT[ChainId.CANDLE]
+    SHIBA
+  //  USDC[ChainId.CANDLE],
+  //  USDT[ChainId.CANDLE]
   ]
 }
 

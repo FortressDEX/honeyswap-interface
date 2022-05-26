@@ -64,7 +64,7 @@ export default function CurrencyLogo({
   marginLeft?: number
 }) {
   const { chainId } = useActiveWeb3React()
-  const nativeCurrencyLogo = NATIVE_CURRENCY_LOGO[(chainId as ChainId) || ChainId.XDAI]
+  const nativeCurrencyLogo = NATIVE_CURRENCY_LOGO[(chainId as ChainId) || ChainId.CANDLE]
   const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? currency.logoURI : undefined)
 
   const srcs: string[] = useMemo(() => {

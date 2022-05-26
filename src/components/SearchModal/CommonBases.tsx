@@ -47,19 +47,21 @@ export default function CommonBases({
             </Text>
           </RowBetween>
         </Option>
-        {(chainId ? SUGGESTED_BASES[chainId] : []).filter(token => token).map((token: Token) => {
-          const selected = selectedCurrency instanceof Token && selectedCurrency.address === token.address
-          return (
-            <Option transparent onClick={() => !selected && onSelect(token)} disabled={selected} key={token.address}>
-              <RowBetween>
-                <CurrencyLogo size="20px" currency={token} marginRight={8} />
-                <Text fontWeight={500} fontSize={16}>
-                  {token.symbol}
-                </Text>
-              </RowBetween>
-            </Option>
-          )
-        })}
+        {(chainId ? SUGGESTED_BASES[chainId] : [])
+          .filter(token => token)
+          .map((token: Token) => {
+            const selected = selectedCurrency instanceof Token && selectedCurrency.address === token.address
+            return (
+              <Option transparent onClick={() => !selected && onSelect(token)} disabled={selected} key={token.address}>
+                <RowBetween>
+                  <CurrencyLogo size="20px" currency={token} marginRight={8} />
+                  <Text fontWeight={500} fontSize={16}>
+                    {token.symbol}
+                  </Text>
+                </RowBetween>
+              </Option>
+            )
+          })}
       </AutoRow>
     </AutoColumn>
   )

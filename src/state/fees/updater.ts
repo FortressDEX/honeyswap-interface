@@ -9,9 +9,10 @@ export default function Updater() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (library && chainId)
-      Promise.all([Fetcher.fetchAllSwapFees(chainId, {}, library), Fetcher.fetchProtocolFee(chainId, library)])
-        .then(([swapFees, protocolFee]) => {
+    if (library && chainId) {
+      const fetchData = async () => {
+        try {
+          const [swapFees, protocolFee] = await Promise.all([Fetcher.fetchAllSwapFees(chainId, {}, library), Fetcher.fetchProtocolFee(chainId, library)]);
           if (swapFees) dispatch(setSwapFees({ swapFees }))
           if (protocolFee)
             dispatch(
@@ -20,11 +21,17 @@ export default function Updater() {
                 protocolFeeTo: protocolFee.feeReceiver
               })
             )
-        })
-        .catch(error => {
+        } catch(e) {
+          console.warn('Cancelled fetch for fees, error:', e);
+        }
+      };
+
+      fetchData().catch(error => {
           console.error('Cancelled fetch for fees, error:', error)
           return
-        })
+      })
+    }
+    
   }, [library, chainId, dispatch])
 
   return null

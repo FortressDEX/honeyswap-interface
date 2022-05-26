@@ -203,7 +203,7 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.ARBITRUM_TESTNET_V3]: [],
   [ChainId.SOKOL]: [],
   [ChainId.XDAI]: [WETH[ChainId.XDAI], USDC[ChainId.XDAI], HONEY[ChainId.XDAI]],
-  [ChainId.MATIC]: [WETH[ChainId.MATIC], [HONEY[ChainId.MATIC]],
+  [ChainId.MATIC]: [WETH[ChainId.MATIC], HONEY[ChainId.MATIC]],
   [ChainId.CANDLE]: [WETH[ChainId.CANDLE],  SHIBA, DAI[ChainId.CANDLE]]
 }
 

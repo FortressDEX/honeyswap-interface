@@ -7,6 +7,7 @@ import {
   WSPOA,
   WXDAI,
   WMATIC,
+  WCNDL,
   STAKING_REWARDS_FACTORY_ADDRESS,
   STAKING_REWARDS_FACTORY_ABI,
   STAKING_REWARDS_DISTRIBUTION_ABI
@@ -25,6 +26,7 @@ import WETH_ABI from '../constants/abis/weth.json'
 import WSPOA_ABI from '../constants/abis/wspoa.json'
 import WXDAI_ABI from '../constants/abis/wxdai.json'
 import WMATIC_ABI from '../constants/abis/wmatic.json'
+import WCNDL_ABI from '../constants/abis/wcndl.json'
 import { MULTICALL_ABI, MULTICALL_NETWORKS } from '../constants/multicall'
 import { getContract } from '../utils'
 import { useActiveWeb3React } from './index'

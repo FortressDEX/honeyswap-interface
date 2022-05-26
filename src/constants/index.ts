@@ -20,7 +20,7 @@ export const DAI: { [key: number]: Token } = {
   ),
   [ChainId.XDAI]: new Token(ChainId.XDAI, '0x44fa8e6f47987339850636f88629646662444217', 18, 'DAI', 'Dai Stablecoin'),
   [ChainId.MATIC]: new Token(ChainId.MATIC, '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063', 18, 'DAI', 'Dai Stablecoin'),
-  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0xad43669cbAC863e33449d423261E525de8da0Ff4', 18, 'DAI', 'Dai Stablecoin') // updted Dai address for Candle. Need to verify
+  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0xad43669cbAC863e33449d423261E525de8da0Ff4', 18, 'DAI', 'Dai Stablecoin') // updated Dai address for Candle. Need to verify
 }
 
 export const USDC: { [key: number]: Token } = {
@@ -68,7 +68,8 @@ export const WBTC: { [key: number]: Token } = {
 
 export const HONEY: { [key: number]: Token } = {
   [ChainId.XDAI]: new Token(ChainId.XDAI, '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9', 18, 'HNY', 'Honey'),
-  [ChainId.MATIC]: new Token(ChainId.MATIC, '0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b', 18, 'HNY', 'Honey')
+  [ChainId.MATIC]: new Token(ChainId.MATIC, '0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b', 18, 'HNY', 'Honey'),
+  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b', 18, 'HNY', 'Honey')
 }
 
 export const STAKE = new Token(

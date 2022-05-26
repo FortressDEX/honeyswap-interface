@@ -129,7 +129,7 @@ export default function AddLiquidity({
   )
 
   // check whether the user has approved the router on the tokens
-  const routerAddress = RoutablePlatform.HONEYSWAP.routerAddress[chainId ? chainId : ChainId.XDAI] // changed from "ChainId.XDAI" to "ChainId.CANDLE"
+  const routerAddress = RoutablePlatform.HONEYSWAP.routerAddress[chainId ? chainId : ChainId.CANDLE] // changed from "ChainId.XDAI" to "ChainId.CANDLE"
   const [approvalA, approveACallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_A], routerAddress)
   const [approvalB, approveBCallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_B], routerAddress)
 

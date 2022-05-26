@@ -202,8 +202,8 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.ARBITRUM_TESTNET_V3]: [],
   [ChainId.SOKOL]: [],
   [ChainId.XDAI]: [WETH[ChainId.XDAI], USDC[ChainId.XDAI], HONEY[ChainId.XDAI]],
-  [ChainId.MATIC]: [WETH[ChainId.MATIC], HONEY[ChainId.MATIC]],
-  [ChainId.CANDLE]: [WETH[ChainId.CANDLE], DAI[ChainId.CANDLE]]
+  [ChainId.MATIC]: [WETH[ChainId.MATIC], [HONEY[ChainId.MATIC]],
+  [ChainId.CANDLE]: [WETH[ChainId.CANDLE],  [SHIBA[ChainId.CANDLE], [DAI[ChainId.CANDLE]]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend

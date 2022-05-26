@@ -69,6 +69,8 @@ function useWrappingTokenAbi(token?: Token): any | undefined {
       return WXDAI_ABI
     case WMATIC[chainId]:
       return WMATIC_ABI
+    case WCNDL[chainId]:
+      return WCNDL_ABI
     default:
       return undefined
   }

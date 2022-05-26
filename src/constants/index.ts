@@ -184,13 +184,13 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.CANDLE]: [
     WETH[ChainId.CANDLE],
     WCNDL[ChainId.CANDLE],
-  //  HONEY[ChainId.MATIC],
+    //  HONEY[ChainId.MATIC],
     DAI[ChainId.CANDLE],
     SHIBA
-  //  USDC[ChainId.MATIC],
-  //  USDT[ChainId.MATIC],
-//    SURF,
-//    WAVE
+    //  USDC[ChainId.MATIC],
+    //  USDT[ChainId.MATIC],
+    //    SURF,
+    //    WAVE
   ]
 }
 
@@ -224,11 +224,11 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.CANDLE]: [
     WCNDL[ChainId.CANDLE],
     WETH[ChainId.CANDLE],
-  //  HONEY[ChainId.CANDLE],
+    //  HONEY[ChainId.CANDLE],
     DAI[ChainId.CANDLE],
     SHIBA
-  //  USDC[ChainId.CANDLE],
-  //  USDT[ChainId.CANDLE]
+    //  USDC[ChainId.CANDLE],
+    //  USDT[ChainId.CANDLE]
   ]
 }
 

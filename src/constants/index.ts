@@ -69,7 +69,7 @@ export const WBTC: { [key: number]: Token } = {
 export const HONEY: { [key: number]: Token } = {
   [ChainId.XDAI]: new Token(ChainId.XDAI, '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9', 18, 'HNY', 'Honey'),
   [ChainId.MATIC]: new Token(ChainId.MATIC, '0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b', 18, 'HNY', 'Honey'),
-  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b', 18, 'HNY', 'Honey')
+  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0xa018034190943D6c8E10218d9F8E8Af491272411', 18, 'HNY', 'Honey') // changed to shiba for now to test
 }
 
 export const STAKE = new Token(
@@ -185,7 +185,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.CANDLE]: [
     WETH[ChainId.CANDLE],
     WCNDL[ChainId.CANDLE],
-    //  HONEY[ChainId.MATIC],
+    HONEY[ChainId.CANDLE],
     DAI[ChainId.CANDLE],
     SHIBA
     //  USDC[ChainId.MATIC],
@@ -204,7 +204,7 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.SOKOL]: [],
   [ChainId.XDAI]: [WETH[ChainId.XDAI], USDC[ChainId.XDAI], HONEY[ChainId.XDAI]],
   [ChainId.MATIC]: [WETH[ChainId.MATIC], HONEY[ChainId.MATIC]],
-  [ChainId.CANDLE]: [WETH[ChainId.CANDLE],  SHIBA, DAI[ChainId.CANDLE]]
+  [ChainId.CANDLE]: [WETH[ChainId.CANDLE],  HONEY[ChainId.MATIC], SHIBA, DAI[ChainId.CANDLE]]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -225,7 +225,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.CANDLE]: [
     WCNDL[ChainId.CANDLE],
     WETH[ChainId.CANDLE],
-    //  HONEY[ChainId.CANDLE],
+    HONEY[ChainId.CANDLE],
     DAI[ChainId.CANDLE],
     SHIBA
     //  USDC[ChainId.CANDLE],

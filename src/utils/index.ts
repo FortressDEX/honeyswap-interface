@@ -50,8 +50,8 @@ export function getExplorerLink(
 ): string {
   const prefix = getExplorerPrefix(chainId)
 
-  // exception. blockscout doesn't have a token-specific address
-  if (chainId === ChainId.XDAI && type === 'token') {
+  // exception. blockscout doesn't have a token-specific address - changed from XDAI to CANDLE
+  if (chainId === ChainId.CANDLE && type === 'token') {
     return `${prefix}/address/${data}`
   }
 
@@ -129,7 +129,7 @@ export function getRouterContract(
   account?: string
 ): Contract {
   return getContract(
-    platform.routerAddress[chainId ? chainId : ChainId.XDAI] as string,
+    platform.routerAddress[chainId ? chainId : ChainId.CANDLE] as string,
     IDXswapRouterABI,
     library,
     account

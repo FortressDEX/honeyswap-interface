@@ -119,7 +119,7 @@ export default function RemoveLiquidity({
 
   // allowance handling
   const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(null)
-  const routerAddress = RoutablePlatform.HONEYSWAP.routerAddress[chainId ? chainId : ChainId.XDAI]
+  const routerAddress = RoutablePlatform.HONEYSWAP.routerAddress[chainId ? chainId : ChainId.CANDLE]
   const [approval, approveCallback] = useApproveCallback(parsedAmounts[Field.LIQUIDITY], routerAddress)
 
   async function onAttemptToApprove() {

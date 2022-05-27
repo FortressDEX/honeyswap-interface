@@ -59,7 +59,7 @@ class CustomMiniRpcProvider implements AsyncSendable {
       },
       body: JSON.stringify({
         jsonrpc: '2.0',
-        id: 1,
+        id: 534,
         method,
         params
       })

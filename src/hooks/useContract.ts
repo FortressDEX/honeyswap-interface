@@ -10,13 +10,13 @@ import {
   WCNDL,
   STAKING_REWARDS_FACTORY_ADDRESS,
   STAKING_REWARDS_FACTORY_ABI,
-  STAKING_REWARDS_DISTRIBUTION_ABI
+  STAKING_REWARDS_DISTRIBUTION_ABI,
 } from 'dxswap-sdk'
 import { abi as IDXswapPairABI } from 'dxswap-core/build/IDXswapPair.json'
 import { useMemo } from 'react'
 import {
   ARGENT_WALLET_DETECTOR_ABI,
-  ARGENT_WALLET_DETECTOR_MAINNET_ADDRESS
+  ARGENT_WALLET_DETECTOR_MAINNET_ADDRESS,
 } from '../constants/abis/argent-wallet-detector'
 import ENS_PUBLIC_RESOLVER_ABI from '../constants/abis/ens-public-resolver.json'
 import ENS_ABI from '../constants/abis/ens-registrar.json'

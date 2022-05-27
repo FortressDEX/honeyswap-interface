@@ -6,9 +6,10 @@ import { useMemo } from 'react'
 import { useActiveWeb3React } from '.'
 import { useNativeCurrency } from './useNativeCurrency'
 
-export function useTokenDerivedNativeCurrency(
-  token?: Token
-): { loading: boolean; derivedNativeCurrency: CurrencyAmount } {
+export function useTokenDerivedNativeCurrency(token?: Token): {
+  loading: boolean
+  derivedNativeCurrency: CurrencyAmount
+} {
   const { chainId } = useActiveWeb3React()
   const nativeCurrency = useNativeCurrency()
 
@@ -41,7 +42,7 @@ export function useTokenDerivedNativeCurrency(
           )
           .toString(),
         chainId
-      )
+      ),
     }
   }, [chainId, data, error, loading, nativeCurrency])
 }

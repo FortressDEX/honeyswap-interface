@@ -2,7 +2,7 @@ import { Pair, PricedTokenAmount, TokenAmount } from 'dxswap-sdk'
 import React, { useCallback, useState } from 'react'
 import TransactionConfirmationModal, {
   ConfirmationModalContent,
-  TransactionErrorContent
+  TransactionErrorContent,
 } from '../../../TransactionConfirmationModal'
 import ConfirmStakingModalFooter from '../ModalBase/Footer'
 import ConfirmStakingWithdrawingModalHeader from '../ModalBase/Header'
@@ -26,11 +26,11 @@ export default function ConfirmWithdrawalModal({
   errorMessage,
   withdrawablTokenBalance,
   onDismiss,
-  onConfirm
+  onConfirm,
 }: ConfirmWithdrawalModalProps) {
   const [withdrawableAmount, setWithdrawableAmount] = useState<TokenAmount | null>(null)
 
-  const handleWithdrawableAmountChange = useCallback(amount => {
+  const handleWithdrawableAmountChange = useCallback((amount) => {
     setWithdrawableAmount(amount)
   }, [])
 

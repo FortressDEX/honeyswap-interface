@@ -58,7 +58,7 @@ function PairRow({ pair, onSelect, isSelected, style }: PairRowProps) {
             <Badge
               label={customAdded ? 'Added by user' : 'Found by address'}
               icon={customAdded ? X : Plus}
-              onClick={event => {
+              onClick={(event) => {
                 event.stopPropagation()
                 if (!chainId) {
                   return
@@ -80,7 +80,7 @@ function PairRow({ pair, onSelect, isSelected, style }: PairRowProps) {
 export default function PairList({
   pairs,
   selectedPair,
-  onPairSelect
+  onPairSelect,
 }: {
   pairs: Pair[]
   selectedPair?: Pair | null

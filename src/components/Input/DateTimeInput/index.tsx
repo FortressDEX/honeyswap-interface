@@ -5,7 +5,7 @@ import { StyledInput } from '../styleds'
 
 const Input = styled(StyledInput)`
   position: relative;
-  border: solid 1px ${props => props.theme.bg5};
+  border: solid 1px ${(props) => props.theme.bg5};
   border-radius: 8px;
   width: 100%;
   font-size: 11px;
@@ -15,7 +15,7 @@ const Input = styled(StyledInput)`
   height: 30px;
   padding-left: 12px;
   padding-right: 12px;
-  color: ${props => props.theme.text5};
+  color: ${(props) => props.theme.text5};
   text-transform: uppercase;
   font-weight: 600;
   font-size: 11px;
@@ -25,7 +25,7 @@ const Input = styled(StyledInput)`
 const StyledDay = styled.span`
   font-family: Montserrat;
   font-size: 11px;
-  color: ${props => props.theme.text5};
+  color: ${(props) => props.theme.text5};
 `
 
 interface PickerProps {
@@ -49,7 +49,7 @@ export default function DateTimeInput({ value, placeholder, minimum, maximum, on
       onChange={onChange}
       showTimeSelect
       timeFormat="HH:mm"
-      filterTime={time => {
+      filterTime={(time) => {
         if (!minimum) return true
         const dateTime = new Date(time)
         if (dateTime.getMonth() !== minimum.getMonth() || dateTime.getDate() !== minimum.getDate()) return true

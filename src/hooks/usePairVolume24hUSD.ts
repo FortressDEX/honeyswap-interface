@@ -22,10 +22,8 @@ export function usePair24hVolumeUSD(pair?: Pair | null): { loading: boolean; vol
   const { loading, data, error } = useQuery<QueryResult>(QUERY, {
     variables: {
       pairAddress: pair?.liquidityToken.address.toLowerCase(),
-      date: DateTime.utc()
-        .startOf('day')
-        .toSeconds()
-    }
+      date: DateTime.utc().startOf('day').toSeconds(),
+    },
   })
 
   return useMemo(() => {
@@ -36,7 +34,7 @@ export function usePair24hVolumeUSD(pair?: Pair | null): { loading: boolean; vol
       loading,
       volume24hUSD: CurrencyAmount.usd(
         parseUnits(new Decimal(data.pairDayDatas[0].dailyVolumeUSD).toFixed(USD.decimals), USD.decimals).toString()
-      )
+      ),
     }
   }, [data, error, loading])
 }

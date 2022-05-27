@@ -6,7 +6,7 @@ export const tokens = [
     decimals: 18,
     chainId: 1,
     logoURI:
-      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png'
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
   },
   {
     name: 'Wrapped Ether',
@@ -15,7 +15,7 @@ export const tokens = [
     decimals: 18,
     chainId: 3,
     logoURI:
-      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png'
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
   },
   {
     name: 'Wrapped Ether',
@@ -24,7 +24,7 @@ export const tokens = [
     decimals: 18,
     chainId: 4,
     logoURI:
-      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png'
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
   },
   {
     name: 'Wrapped Ether',
@@ -33,7 +33,7 @@ export const tokens = [
     decimals: 18,
     chainId: 5,
     logoURI:
-      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png'
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
   },
   {
     name: 'Wrapped Ether',
@@ -42,7 +42,7 @@ export const tokens = [
     decimals: 18,
     chainId: 42,
     logoURI:
-      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png'
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
   },
   {
     name: 'Wrapped Ether', // is this needed / redundant?
@@ -51,7 +51,7 @@ export const tokens = [
     decimals: 18,
     chainId: 534,
     logoURI:
-      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png'
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
   },
   {
     name: 'Shiba Inu',
@@ -60,7 +60,7 @@ export const tokens = [
     decimals: 18,
     chainId: 534,
     logoURI:
-      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png'
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
   },
   {
     name: 'DXDao',
@@ -68,7 +68,7 @@ export const tokens = [
     symbol: 'DXD',
     decimals: 18,
     chainId: 4,
-    logoURI: 'https://gateway.pinata.cloud/ipfs/QmPhoeL14E5SBFBaC4bA3nuRpg3MpxdWVYdPrdXHdQ3EHY/brand/dxdao-blue.png'
+    logoURI: 'https://gateway.pinata.cloud/ipfs/QmPhoeL14E5SBFBaC4bA3nuRpg3MpxdWVYdPrdXHdQ3EHY/brand/dxdao-blue.png',
   },
   {
     name: 'Weenus',
@@ -76,7 +76,7 @@ export const tokens = [
     symbol: 'WEENUS',
     decimals: 18,
     chainId: 4,
-    logoURI: 'https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png'
+    logoURI: 'https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png',
   },
   {
     name: 'Xeenus',
@@ -84,7 +84,7 @@ export const tokens = [
     symbol: 'XEENUS',
     decimals: 18,
     chainId: 4,
-    logoURI: 'https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png'
+    logoURI: 'https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png',
   },
   {
     name: 'Yeenus',
@@ -92,7 +92,7 @@ export const tokens = [
     symbol: 'YEENUS',
     decimals: 8,
     chainId: 4,
-    logoURI: 'https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png'
+    logoURI: 'https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png',
   },
   {
     name: 'Zeenus',
@@ -100,6 +100,6 @@ export const tokens = [
     symbol: 'ZEENUS',
     decimals: 0,
     chainId: 4,
-    logoURI: 'https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png'
-  }
+    logoURI: 'https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png',
+  },
 ]

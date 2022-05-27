@@ -42,7 +42,7 @@ function CurrencyRow({
   onSelect,
   isSelected,
   otherSelected,
-  style
+  style,
 }: {
   currency: Currency
   selectedTokenList: TokenAddressMap
@@ -85,7 +85,7 @@ function CurrencyRow({
             <Badge
               label={customAdded ? 'Added by user' : 'Found by address'}
               icon={customAdded ? X : Plus}
-              onClick={event => {
+              onClick={(event) => {
                 event.stopPropagation()
                 if (!chainId || !(currency instanceof Token)) {
                   return
@@ -112,7 +112,7 @@ export default function CurrencyList({
   selectedCurrency,
   onCurrencySelect,
   otherCurrency,
-  showNativeCurrency
+  showNativeCurrency,
 }: {
   currencies: Currency[]
   selectedCurrency?: Currency | null
@@ -122,11 +122,10 @@ export default function CurrencyList({
 }) {
   const nativeCurrency = useNativeCurrency()
   const selectedTokenList = useTokenList()
-  const itemData = useMemo(() => (showNativeCurrency ? [nativeCurrency, ...currencies] : currencies), [
-    currencies,
-    nativeCurrency,
-    showNativeCurrency
-  ])
+  const itemData = useMemo(
+    () => (showNativeCurrency ? [nativeCurrency, ...currencies] : currencies),
+    [currencies, nativeCurrency, showNativeCurrency]
+  )
 
   const Row = useCallback(
     ({ data, index, style }) => {

@@ -21,7 +21,7 @@ const ROUTABLE_PLATFORM_LOGO: { [routablePaltformName: string]: ReactNode } = {
   [RoutablePlatform.SWAPR.name]: <img width={16} height={16} src={SwaprLogo} alt="swapr" />,
   [RoutablePlatform.HONEYSWAP.name]: <img width={16} height={16} src={HoneyswapLogo} alt="honeyswap" />,
   [RoutablePlatform.BAOSWAP.name]: <img width={16} height={16} src={BaoswapLogo} alt="baoswap" />,
-  [RoutablePlatform.QUICKSWAP.name]: <img width={16} height={16} src={QuickswapLogo} alt="quickswap" />
+  [RoutablePlatform.QUICKSWAP.name]: <img width={16} height={16} src={QuickswapLogo} alt="quickswap" />,
 }
 
 export interface SwapPlatformSelectorProps {
@@ -33,11 +33,11 @@ export interface SwapPlatformSelectorProps {
 export function SwapPlatformSelector({
   allPlatformTrades,
   selectedTrade,
-  onSelectedPlatformChange
+  onSelectedPlatformChange,
 }: SwapPlatformSelectorProps) {
   const handleSelectedTradeOverride = useCallback(
-    event => {
-      const newTrade = allPlatformTrades?.find(trade => trade?.platform.name.toLowerCase() === event.target.value)
+    (event) => {
+      const newTrade = allPlatformTrades?.find((trade) => trade?.platform.name.toLowerCase() === event.target.value)
       if (!newTrade) return
       onSelectedPlatformChange(newTrade.platform)
     },

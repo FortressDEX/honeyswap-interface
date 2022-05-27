@@ -125,7 +125,7 @@ const AccountElement = styled.div<{ active: boolean; networkError: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: ${props => (props.networkError ? 'transparent' : ({ theme }) => theme.bg1)};
+  background-color: ${(props) => (props.networkError ? 'transparent' : ({ theme }) => theme.bg1)};
   border: solid 2px transparent;
   box-sizing: border-box;
   color: ${({ theme }) => theme.yellow1};
@@ -174,7 +174,7 @@ const DXswapIcon = styled.div`
 const activeClassName = 'ACTIVE'
 
 export const StyledNavLink = styled(NavLink).attrs({
-  activeClassName
+  activeClassName,
 })`
   ${({ theme }) => theme.flexRowNoWrap}
   align-items: left;
@@ -200,7 +200,7 @@ export const StyledNavLink = styled(NavLink).attrs({
 `
 
 const StyledExternalLink = styled(ExternalLink).attrs({
-  activeClassName
+  activeClassName,
 })<{ isActive?: boolean }>`
   ${({ theme }) => theme.flexRowNoWrap}
   align-items: left;

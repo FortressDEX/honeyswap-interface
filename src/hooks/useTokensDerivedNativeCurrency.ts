@@ -6,9 +6,10 @@ import { useMemo } from 'react'
 import { useActiveWeb3React } from '.'
 import { useNativeCurrency } from './useNativeCurrency'
 
-export function useNativeCurrencyPricedTokenAmounts(
-  tokenAmounts?: TokenAmount[] | null
-): { loading: boolean; pricedTokenAmounts: PricedTokenAmount[] } {
+export function useNativeCurrencyPricedTokenAmounts(tokenAmounts?: TokenAmount[] | null): {
+  loading: boolean
+  pricedTokenAmounts: PricedTokenAmount[]
+} {
   const { chainId } = useActiveWeb3React()
   const nativeCurrency = useNativeCurrency()
 
@@ -25,7 +26,7 @@ export function useNativeCurrencyPricedTokenAmounts(
         }
       }
     `,
-    { variables: { tokenIds: tokenAmounts?.map(tokenAmount => tokenAmount.token.address.toLowerCase()) } }
+    { variables: { tokenIds: tokenAmounts?.map((tokenAmount) => tokenAmount.token.address.toLowerCase()) } }
   )
 
   return useMemo(() => {
@@ -34,7 +35,7 @@ export function useNativeCurrencyPricedTokenAmounts(
     const pricedTokenAmounts = []
     for (const rawTokenData of data.tokens) {
       const relatedTokenAmount = tokenAmounts.find(
-        tokenAmount => tokenAmount.token.address.toLowerCase() === rawTokenData.address
+        (tokenAmount) => tokenAmount.token.address.toLowerCase() === rawTokenData.address
       )
       if (!relatedTokenAmount) {
         continue
@@ -59,7 +60,7 @@ export function useNativeCurrencyPricedTokenAmounts(
     }
     return {
       loading: false,
-      pricedTokenAmounts: pricedTokenAmounts
+      pricedTokenAmounts: pricedTokenAmounts,
     }
   }, [chainId, data, error, loading, nativeCurrency, tokenAmounts])
 }

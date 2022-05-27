@@ -94,7 +94,7 @@ export function usePairsComparator(inverted: boolean): (pairA: Pair, pairB: Pair
   const trackedTokenPairs = useTrackedTokenPairs()
   const balances = useTokenBalances(
     account || undefined,
-    trackedTokenPairs.map(rawPair => toDXSwapLiquidityToken(rawPair))
+    trackedTokenPairs.map((rawPair) => toDXSwapLiquidityToken(rawPair))
   )
   const comparator = useMemo(() => getPairsComparator(balances ?? {}), [balances])
   return useMemo(() => {

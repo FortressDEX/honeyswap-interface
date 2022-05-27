@@ -29,12 +29,12 @@ const EMPTY_LIST: TokenAddressMap = {
   [ChainId.SOKOL]: {},
   [ChainId.XDAI]: {},
   [ChainId.MATIC]: {},
-  [ChainId.CANDLE]: {}
+  [ChainId.CANDLE]: {},
 }
 
 export function tokenListToTokenMap(list: TokenInfo[]): TokenAddressMap {
   const map = EMPTY_LIST
-  list.forEach(tokenInfo => {
+  list.forEach((tokenInfo) => {
     const token = new WrappedTokenInfo(tokenInfo)
     if (!map[token.chainId][token.address]) map[token.chainId][token.address] = token
   })
@@ -42,6 +42,6 @@ export function tokenListToTokenMap(list: TokenInfo[]): TokenAddressMap {
 }
 
 export function useTokenList(): TokenAddressMap {
-  const tokenList: TokenList = useSelector<AppState, AppState['tokenList']>(state => state.tokenList)
+  const tokenList: TokenList = useSelector<AppState, AppState['tokenList']>((state) => state.tokenList)
   return tokenListToTokenMap(tokenList.tokens)
 }

@@ -14,14 +14,14 @@ export default function Updater() {
         try {
           const [swapFees, protocolFee] = await Promise.all([
             Fetcher.fetchAllSwapFees(chainId, {}, library),
-            Fetcher.fetchProtocolFee(chainId, library)
+            Fetcher.fetchProtocolFee(chainId, library),
           ])
           if (swapFees) dispatch(setSwapFees({ swapFees }))
           if (protocolFee)
             dispatch(
               setProtocolFee({
                 protocolFeeDenominator: Number(protocolFee.feeDenominator) + 1,
-                protocolFeeTo: protocolFee.feeReceiver
+                protocolFeeTo: protocolFee.feeReceiver,
               })
             )
         } catch (e) {
@@ -29,7 +29,7 @@ export default function Updater() {
         }
       }
 
-      fetchData().catch(error => {
+      fetchData().catch((error) => {
         console.error('Cancelled fetch for fees, error:', error)
         return
       })

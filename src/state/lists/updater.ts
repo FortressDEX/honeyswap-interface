@@ -14,7 +14,7 @@ export default function Updater() {
         .then((tokenList: TokenList) => {
           if (tokenList) dispatch(setTokenList(tokenList))
         })
-        .catch(error => {
+        .catch((error) => {
           console.error('Error fetching the default token list. error:', error)
           return
         })

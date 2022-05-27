@@ -26,7 +26,7 @@ export const NumericalInput = React.memo(function InnerInput({
     <StyledInput
       {...rest}
       value={value}
-      onChange={event => {
+      onChange={(event) => {
         // replace commas with periods, because dxswap exclusively uses period as the decimal separator
         enforcer(event.target.value.replace(/,/g, '.'))
       }}

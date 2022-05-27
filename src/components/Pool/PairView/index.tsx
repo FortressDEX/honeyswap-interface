@@ -15,7 +15,7 @@ import { commify } from 'ethers/lib/utils'
 
 const StyledDarkCard = styled(DarkCard)`
   ::before {
-    background: ${props => props.theme.bg1};
+    background: ${(props) => props.theme.bg1};
   }
 `
 
@@ -23,7 +23,7 @@ const DataText = styled.div`
   font-size: 14px;
   line-height: 17px;
   font-weight: 500;
-  color: ${props => props.theme.yellow1};
+  color: ${(props) => props.theme.yellow1};
 `
 
 interface DataRowProps {

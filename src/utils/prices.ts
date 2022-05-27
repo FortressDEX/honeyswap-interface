@@ -10,7 +10,7 @@ import {
   Price,
   Currency,
   _10000,
-  _100
+  _100,
 } from 'dxswap-sdk'
 import { ALLOWED_PRICE_IMPACT_HIGH, ALLOWED_PRICE_IMPACT_LOW, ALLOWED_PRICE_IMPACT_MEDIUM } from '../constants'
 import { Field } from '../state/swap/actions'
@@ -21,9 +21,11 @@ import { parseUnits } from 'ethers/lib/utils'
 const ONE_HUNDRED_PERCENT = new Percent(JSBI.BigInt(10000), JSBI.BigInt(10000))
 
 // computes price breakdown for the trade
-export function computeTradePriceBreakdown(
-  trade?: Trade
-): { priceImpactWithoutFee?: Percent; realizedLPFee?: Percent; realizedLPFeeAmount?: CurrencyAmount } {
+export function computeTradePriceBreakdown(trade?: Trade): {
+  priceImpactWithoutFee?: Percent
+  realizedLPFee?: Percent
+  realizedLPFeeAmount?: CurrencyAmount
+} {
   // for each hop in our trade, take away the x*y=k price impact from 0.3% fees
   // e.g. for 3 tokens/2 hops: 1 - ((1 - .03) * (1-.03))
   const realizedLPFee = !trade
@@ -54,7 +56,7 @@ export function computeTradePriceBreakdown(
   return {
     priceImpactWithoutFee: priceImpactWithoutFeePercent,
     realizedLPFee: realizedLPFee ? new Percent(realizedLPFee.numerator, realizedLPFee.denominator) : undefined,
-    realizedLPFeeAmount
+    realizedLPFeeAmount,
   }
 }
 
@@ -92,7 +94,7 @@ export function computeSlippageAdjustedAmounts(
   const pct = basisPointsToPercent(allowedSlippage)
   return {
     [Field.INPUT]: trade?.maximumAmountIn(pct),
-    [Field.OUTPUT]: trade?.minimumAmountOut(pct)
+    [Field.OUTPUT]: trade?.minimumAmountOut(pct),
   }
 }
 

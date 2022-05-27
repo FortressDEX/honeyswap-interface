@@ -32,12 +32,12 @@ const Title = styled.span<{ active: boolean }>`
   justify-content: center;
   height: inherit;
   font-size: 18px;
-  color: ${props => (props.active ? props.theme.text4 : props.theme.text5)};
+  color: ${(props) => (props.active ? props.theme.text4 : props.theme.text5)};
   transition: 0.3s;
   padding-bottom: 4px;
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  border-bottom-color: ${props => (props.active ? props.theme.text4 : 'transparent')};
+  border-bottom-color: ${(props) => (props.active ? props.theme.text4 : 'transparent')};
   white-space: nowrap;
 `
 

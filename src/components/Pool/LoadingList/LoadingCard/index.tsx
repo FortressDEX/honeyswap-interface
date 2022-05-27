@@ -9,7 +9,7 @@ const SizedCard = styled(DarkCard)`
   width: 210px;
   height: 108px;
   padding: 16px;
-  ${props => props.theme.mediaWidth.upToMedium`
+  ${(props) => props.theme.mediaWidth.upToMedium`
     width: 100%;
   `}
 `

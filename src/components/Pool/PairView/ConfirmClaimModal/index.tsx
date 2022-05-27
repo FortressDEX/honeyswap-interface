@@ -2,7 +2,7 @@ import { PricedTokenAmount, TokenAmount } from 'dxswap-sdk'
 import React, { useCallback, useEffect, useState } from 'react'
 import TransactionConfirmationModal, {
   ConfirmationModalContent,
-  TransactionErrorContent
+  TransactionErrorContent,
 } from '../../../TransactionConfirmationModal'
 import ConfirmStakingModalFooter from '../ModalBase/Footer'
 import ConfirmClaimModalHeader from './Header'
@@ -24,7 +24,7 @@ export default function ConfirmClaimModal({
   errorMessage,
   claimableTokenAmounts,
   onDismiss,
-  onConfirm
+  onConfirm,
 }: ConfirmClaimModalProps) {
   const [claimedAmounts, setClaimedAmounts] = useState<{ [claimedTokenAddress: string]: TokenAmount }>({})
   const [disabledConfirm, setDisabledConfirm] = useState(true)
@@ -36,7 +36,7 @@ export default function ConfirmClaimModal({
       if (allZero && claimedAmount.greaterThan('0')) {
         allZero = false
       }
-      const relatedClaimableReward = claimableTokenAmounts.find(claimable =>
+      const relatedClaimableReward = claimableTokenAmounts.find((claimable) =>
         claimable.token.equals(claimedAmount.token)
       )
       if (relatedClaimableReward && relatedClaimableReward.lessThan(claimedAmount)) {
@@ -56,7 +56,7 @@ export default function ConfirmClaimModal({
 
   const handleConfirm = useCallback(() => {
     if (!claimedAmounts) return
-    const correctlySortedAmounts = claimableTokenAmounts.map(claimable => {
+    const correctlySortedAmounts = claimableTokenAmounts.map((claimable) => {
       const relatedClaimedAmount = claimedAmounts[claimable.token.address]
       return relatedClaimedAmount ?? new TokenAmount(claimable.token, '0')
     })
@@ -100,7 +100,7 @@ export default function ConfirmClaimModal({
       hash={txHash}
       content={content}
       pendingText={`Claiming ${Object.values(claimedAmounts)
-        .map(claimedAmount => `${claimedAmount.toSignificant(4)} ${claimedAmount.token.symbol}`)
+        .map((claimedAmount) => `${claimedAmount.toSignificant(4)} ${claimedAmount.token.symbol}`)
         .join(', ')}`}
     />
   )

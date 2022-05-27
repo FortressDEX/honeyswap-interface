@@ -12,10 +12,10 @@ export function useTokenAllowance(token?: Token, owner?: string, spender?: strin
   const inputs = useMemo(() => [owner, spender], [owner, spender])
   const allowance = useSingleCallResult(contract, 'allowance', inputs).result
 
-  return useMemo(() => (token && allowance ? new TokenAmount(token, allowance.toString()) : undefined), [
-    token,
-    allowance
-  ])
+  return useMemo(
+    () => (token && allowance ? new TokenAmount(token, allowance.toString()) : undefined),
+    [token, allowance]
+  )
 }
 
 export function useTokenAllowances(
@@ -25,7 +25,7 @@ export function useTokenAllowances(
 ): TokenAmount[] | undefined {
   const multicall = useMulticallContract()
   const rawAllowances = useMultipleContractSingleData(
-    (tokens || []).map(token => token.address),
+    (tokens || []).map((token) => token.address),
     ERC20_INTERFACE,
     'allowance(address,address)',
     [owner, spender]
@@ -33,7 +33,7 @@ export function useTokenAllowances(
 
   return useMemo(() => {
     if (!multicall || !tokens || tokens.length === 0 || !rawAllowances || rawAllowances.length === 0) return
-    const pendingCall = rawAllowances.find(call => call.loading || !call.result)
+    const pendingCall = rawAllowances.find((call) => call.loading || !call.result)
     if (pendingCall) {
       return undefined
     }

@@ -13,7 +13,7 @@ const Text = styled.div`
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.08em;
-  color: ${props => props.theme.white};
+  color: ${(props) => props.theme.white};
   text-align: center;
 `
 

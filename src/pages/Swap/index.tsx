@@ -28,7 +28,7 @@ import {
   useDefaultsFromURLSearch,
   useDerivedSwapInfo,
   useSwapActionHandlers,
-  useSwapState
+  useSwapState,
 } from '../../state/swap/hooks'
 import { useExpertModeManager, useUserSlippageTolerance } from '../../state/user/hooks'
 import { TYPE } from '../../theme'
@@ -60,7 +60,7 @@ export default function Swap() {
   // token warning stuff
   const [loadedInputCurrency, loadedOutputCurrency] = [
     useCurrency(loadedUrlParams?.inputCurrencyId),
-    useCurrency(loadedUrlParams?.outputCurrencyId)
+    useCurrency(loadedUrlParams?.outputCurrencyId),
   ]
   const [dismissTokenWarning, setDismissTokenWarning] = useState<boolean>(false)
   const urlLoadedScammyTokens: Token[] = useMemo(() => {
@@ -68,7 +68,7 @@ export default function Swap() {
     if (normalizedAllTokens.length === 0) return []
     return [loadedInputCurrency, loadedOutputCurrency].filter((urlLoadedToken): urlLoadedToken is Token => {
       return (
-        urlLoadedToken instanceof Token && !normalizedAllTokens.some(legitToken => legitToken.equals(urlLoadedToken))
+        urlLoadedToken instanceof Token && !normalizedAllTokens.some((legitToken) => legitToken.equals(urlLoadedToken))
       )
     })
   }, [loadedInputCurrency, loadedOutputCurrency, allTokens])
@@ -97,13 +97,13 @@ export default function Swap() {
     currencyBalances,
     parsedAmount,
     currencies,
-    inputError: swapInputError
+    inputError: swapInputError,
   } = useDerivedSwapInfo(platformOverride || undefined)
-  const { wrapType, execute: onWrap, inputError: wrapInputError } = useWrapCallback(
-    currencies[Field.INPUT],
-    currencies[Field.OUTPUT],
-    typedValue
-  )
+  const {
+    wrapType,
+    execute: onWrap,
+    inputError: wrapInputError,
+  } = useWrapCallback(currencies[Field.INPUT], currencies[Field.OUTPUT], typedValue)
   const bestPricedTrade = allPlatformTrades?.[0] // the best trade is always the first
   const showWrap: boolean = wrapType !== WrapType.NOT_APPLICABLE
   const trade = showWrap ? undefined : potentialTrade
@@ -111,11 +111,11 @@ export default function Swap() {
   const parsedAmounts = showWrap
     ? {
         [Field.INPUT]: parsedAmount,
-        [Field.OUTPUT]: parsedAmount
+        [Field.OUTPUT]: parsedAmount,
       }
     : {
         [Field.INPUT]: independentField === Field.INPUT ? parsedAmount : trade?.inputAmount,
-        [Field.OUTPUT]: independentField === Field.OUTPUT ? parsedAmount : trade?.outputAmount
+        [Field.OUTPUT]: independentField === Field.OUTPUT ? parsedAmount : trade?.outputAmount,
       }
 
   const { onSwitchTokens, onCurrencySelection, onUserInput } = useSwapActionHandlers()
@@ -147,14 +147,14 @@ export default function Swap() {
     tradeToConfirm: undefined,
     attemptingTxn: false,
     swapErrorMessage: undefined,
-    txHash: undefined
+    txHash: undefined,
   })
 
   const formattedAmounts = {
     [independentField]: typedValue,
     [dependentField]: showWrap
       ? parsedAmounts[independentField]?.toExact() ?? ''
-      : parsedAmounts[dependentField]?.toSignificant(6) ?? ''
+      : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
   }
 
   const route = trade?.route
@@ -193,16 +193,16 @@ export default function Swap() {
     }
     setSwapState({ attemptingTxn: true, tradeToConfirm, showConfirm, swapErrorMessage: undefined, txHash: undefined })
     swapCallback()
-      .then(hash => {
+      .then((hash) => {
         setSwapState({ attemptingTxn: false, tradeToConfirm, showConfirm, swapErrorMessage: undefined, txHash: hash })
       })
-      .catch(error => {
+      .catch((error) => {
         setSwapState({
           attemptingTxn: false,
           tradeToConfirm,
           showConfirm,
           swapErrorMessage: error.message,
-          txHash: undefined
+          txHash: undefined,
         })
       })
   }, [tradeToConfirm, priceImpactWithoutFee, showConfirm, swapCallback])
@@ -236,7 +236,7 @@ export default function Swap() {
   }, [attemptingTxn, showConfirm, swapErrorMessage, trade, txHash])
 
   const handleInputSelect = useCallback(
-    inputCurrency => {
+    (inputCurrency) => {
       setPlatformOverride(null) // reset platform override, since best prices might be on a different platform
       setApprovalSubmitted(false) // reset 2 step UI for approvals
       onCurrencySelection(Field.INPUT, inputCurrency)
@@ -249,7 +249,7 @@ export default function Swap() {
   }, [maxAmountInput, onUserInput])
 
   const handleOutputSelect = useCallback(
-    outputCurrency => {
+    (outputCurrency) => {
       setPlatformOverride(null) // reset platform override, since best prices might be on a different platform
       onCurrencySelection(Field.OUTPUT, outputCurrency)
     },
@@ -345,7 +345,7 @@ export default function Swap() {
                       borderRadius: '7px',
                       borderColor: 'white',
                       padding: '4px',
-                      margin: '5px 0'
+                      margin: '5px 0',
                     }}
                   >
                     <img src={BeeEth} alt="" style={{ marginRight: '3px' }} />
@@ -414,7 +414,7 @@ export default function Swap() {
                           attemptingTxn: false,
                           swapErrorMessage: undefined,
                           showConfirm: true,
-                          txHash: undefined
+                          txHash: undefined,
                         })
                       }
                     }}
@@ -441,7 +441,7 @@ export default function Swap() {
                         attemptingTxn: false,
                         swapErrorMessage: undefined,
                         showConfirm: true,
-                        txHash: undefined
+                        txHash: undefined,
                       })
                     }
                   }}

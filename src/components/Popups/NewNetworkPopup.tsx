@@ -15,9 +15,9 @@ export default function NewNetworkPopup({ chainId }: { chainId: ChainId }) {
     window.ethereum
       .request({
         method: 'wallet_addEthereumChain',
-        params: [{ ...NETWORK_DETAIL[chainId], metamaskAddable: undefined }]
+        params: [{ ...NETWORK_DETAIL[chainId], metamaskAddable: undefined }],
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(`error adding network to metamask`, error)
       })
   }, [chainId])

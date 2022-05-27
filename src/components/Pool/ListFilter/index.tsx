@@ -5,11 +5,11 @@ import Radio from '../../Radio'
 
 export enum PairsFilterType {
   ALL = 'ALL',
-  REWARDS = 'REWARDS'
+  REWARDS = 'REWARDS',
 }
 
 const StyledRoot = styled(Flex)<{ disabled?: boolean }>`
-  opacity: ${props => (props.disabled ? 0.2 : 1)};
+  opacity: ${(props) => (props.disabled ? 0.2 : 1)};
   pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
 `
 
@@ -21,7 +21,7 @@ interface ListFilterProps {
 
 export default function ListFilter({ disabled, filter, onFilterChange }: ListFilterProps) {
   const handleFilterRadioChange = useCallback(
-    event => {
+    (event) => {
       onFilterChange(PairsFilterType[event.target.value as keyof typeof PairsFilterType])
     },
     [onFilterChange]

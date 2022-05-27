@@ -10,7 +10,7 @@ import { AlertTriangle } from 'react-feather'
 import { Box, Flex } from 'rebass'
 
 const AlertIcon = styled(AlertTriangle)`
-  color: ${props => props.theme.red1};
+  color: ${(props) => props.theme.red1};
 `
 
 interface ConfirmStakeModalHeaderProps {
@@ -26,7 +26,7 @@ export default function ConfirmStakingWithdrawingModalHeader({
   maximumAmount,
   timelocked,
   endingTimestamp,
-  onAmountChange
+  onAmountChange,
 }: ConfirmStakeModalHeaderProps) {
   const [typedAmount, setTypedAmount] = useState('')
 
@@ -46,7 +46,7 @@ export default function ConfirmStakingWithdrawingModalHeader({
       )}
       <CurrencyInputPanel
         value={typedAmount}
-        onUserInput={input => {
+        onUserInput={(input) => {
           if (!stakablePair) return
           setTypedAmount(input)
           const parsedAmount = tryParseAmount(input, stakablePair.liquidityToken) as TokenAmount | undefined

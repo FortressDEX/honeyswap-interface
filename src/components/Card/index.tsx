@@ -33,13 +33,13 @@ export const PinkCard = styled(Card)`
 `
 
 export const DarkCard = styled(Card)<{ selectable?: boolean }>`
-  background-image: linear-gradient(180deg, ${props => props.theme.bg2} 100%, ${props => props.theme.bg2} 100%);
+  background-image: linear-gradient(180deg, ${(props) => props.theme.bg2} 100%, ${(props) => props.theme.bg2} 100%);
   position: relative;
-  cursor: ${props => (props.selectable ? 'pointer' : 'auto')};
+  cursor: ${(props) => (props.selectable ? 'pointer' : 'auto')};
   z-index: 0;
   position: relative;
   ::before {
-    background-color: ${props => props.theme.bg6};
+    background-color: ${(props) => props.theme.bg6};
     content: '';
     z-index: -1;
     top: 1px;
@@ -77,11 +77,11 @@ export const GradientCard = styled(Card)<{ selectable?: boolean; active?: boolea
   padding: 24px 30px;
   display: flex;
   flex-wrap: wrap;
-  cursor: ${props => (props.selectable ? 'pointer' : 'auto')};
+  cursor: ${(props) => (props.selectable ? 'pointer' : 'auto')};
   opacity: 1;
-  border: solid 1px ${props => props.theme.bg3};
+  border: solid 1px ${(props) => props.theme.bg3};
   position: relative;
-  ${props =>
+  ${(props) =>
     props.selectable &&
     css`
       > * {

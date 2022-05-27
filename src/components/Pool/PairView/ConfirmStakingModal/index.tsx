@@ -3,7 +3,7 @@ import React, { useCallback, useState } from 'react'
 import { ApprovalState, useApproveCallback } from '../../../../hooks/useApproveCallback'
 import TransactionConfirmationModal, {
   ConfirmationModalContent,
-  TransactionErrorContent
+  TransactionErrorContent,
 } from '../../../TransactionConfirmationModal'
 import ConfirmStakingModalFooter from '../ModalBase/Footer'
 import ConfirmStakingWithdrawingModalHeader from '../ModalBase/Header'
@@ -33,7 +33,7 @@ export default function ConfirmStakingModal({
   timelocked,
   endingTimestamp,
   onDismiss,
-  onConfirm
+  onConfirm,
 }: ConfirmStakingModalProps) {
   const [stakedAmount, setStakedAmount] = useState<TokenAmount | null>(null)
   const [approvalState, approveCallback] = useApproveCallback(
@@ -41,7 +41,7 @@ export default function ConfirmStakingModal({
     distributionContractAddress
   )
 
-  const handleStakedAmountChange = useCallback(amount => {
+  const handleStakedAmountChange = useCallback((amount) => {
     setStakedAmount(amount)
   }, [])
 
@@ -99,7 +99,7 @@ export default function ConfirmStakingModal({
       stakablePair,
       stakableTokenBalance,
       stakedAmount,
-      topContent
+      topContent,
     ]
   )
 

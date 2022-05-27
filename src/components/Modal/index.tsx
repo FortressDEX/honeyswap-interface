@@ -27,7 +27,7 @@ const AnimatedDialogContent = animated(DialogContent)
 const StyledDialogContent = styled(({ minHeight, maxHeight, maxWidth, mobile, isOpen, ...rest }) => (
   <AnimatedDialogContent {...rest} />
 )).attrs({
-  'aria-label': 'dialog',
+  'aria-label': 'dialog'
 })`
   overflow-y: ${({ mobile }) => (mobile ? 'scroll' : 'hidden')};
 
@@ -62,15 +62,13 @@ const StyledDialogContent = styled(({ minHeight, maxHeight, maxWidth, mobile, is
     `}
     ${({ theme, mobile }) => theme.mediaWidth.upToSmall`
       width:  85vw;
-      ${
-        mobile &&
+      ${mobile &&
         css`
           width: 100vw;
           border-radius: 20px;
           border-bottom-left-radius: 0;
           border-bottom-right-radius: 0;
-        `
-      }
+        `}
     `}
   }
 `
@@ -92,25 +90,25 @@ export default function Modal({
   maxHeight = 90,
   maxWidth = 460,
   initialFocusRef,
-  children,
+  children
 }: ModalProps) {
   const fadeTransition = useTransition(isOpen, null, {
     config: { duration: 200 },
     from: { opacity: 0 },
     enter: { opacity: 1 },
-    leave: { opacity: 0 },
+    leave: { opacity: 0 }
   })
 
   const [{ y }, set] = useSpring(() => ({ y: -72, config: { mass: 1, tension: 210, friction: 20 } }))
   const bind = useGesture({
-    onDrag: (state) => {
+    onDrag: state => {
       set({
-        y: state.down ? state.movement[1] - 72 : -72,
+        y: state.down ? state.movement[1] - 72 : -72
       })
       if (state.movement[1] > 300 || (state.velocity > 3 && state.direction[1] > 0)) {
         onDismiss()
       }
-    },
+    }
   })
 
   return (
@@ -123,7 +121,7 @@ export default function Modal({
                 {...(isMobile
                   ? {
                       ...bind(),
-                      style: { transform: y.interpolate((y) => `translateY(${y > -72 ? y : -72}px)`) },
+                      style: { transform: y.interpolate(y => `translateY(${y > -72 ? y : -72}px)`) }
                     }
                   : {})}
                 aria-label="dialog content"

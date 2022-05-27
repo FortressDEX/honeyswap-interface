@@ -10,8 +10,8 @@ import border8pxRadius from '../../assets/images/border-8px-radius.png'
 const PopoverContainer = styled.div<{ show: boolean }>`
   z-index: 9999;
 
-  visibility: ${(props) => (props.show ? 'visible' : 'hidden')};
-  opacity: ${(props) => (props.show ? 1 : 0)};
+  visibility: ${props => (props.show ? 'visible' : 'hidden')};
+  opacity: ${props => (props.show ? 1 : 0)};
   transition: visibility 150ms linear, opacity 150ms linear;
 
   padding: 8px;
@@ -42,7 +42,7 @@ export default function Popover({ content, show, children, placement = 'auto' }:
   const { styles, update, attributes } = usePopper(referenceElement, popperElement, {
     placement,
     strategy: 'fixed',
-    modifiers: [{ name: 'offset', options: { offset: [8, 8] } }],
+    modifiers: [{ name: 'offset', options: { offset: [8, 8] } }]
   })
   const updateCallback = useCallback(() => {
     update && update()

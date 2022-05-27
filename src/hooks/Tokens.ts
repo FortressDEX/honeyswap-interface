@@ -34,12 +34,12 @@ export function useAllTokens(): { [address: string]: Token } {
 // Check if currency is included in custom list from user storage
 export function useIsUserAddedToken(currency: Currency): boolean {
   const userAddedTokens = useUserAddedTokens()
-  return !!userAddedTokens.find((token) => currencyEquals(currency, token))
+  return !!userAddedTokens.find(token => currencyEquals(currency, token))
 }
 
 export function useIsUserAddedPair(pair: Pair): boolean {
   const userAddedPairs = useUserAddedPairs()
-  return !!userAddedPairs.find((loopedPair) => loopedPair.equals(pair))
+  return !!userAddedPairs.find(loopedPair => loopedPair.equals(pair))
 }
 
 // parse a name or symbol from a token response
@@ -101,7 +101,7 @@ export function useToken(tokenAddress?: string): Token | undefined | null {
     token,
     tokenName.loading,
     tokenName.result,
-    tokenNameBytes32.result,
+    tokenNameBytes32.result
   ])
 }
 

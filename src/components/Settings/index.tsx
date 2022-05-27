@@ -9,7 +9,7 @@ import {
   useExpertModeManager,
   useUserTransactionTTL,
   useUserSlippageTolerance,
-  useDarkModeManager,
+  useDarkModeManager
 } from '../../state/user/hooks'
 import { TYPE, ExternalLink, LinkStyledButton, CloseIcon } from '../../theme'
 import { ButtonError } from '../Button'
@@ -204,7 +204,7 @@ export default function SettingsTab() {
     config: { duration: 200 },
     from: { opacity: 0 },
     enter: { opacity: 1 },
-    leave: { opacity: 0 },
+    leave: { opacity: 0 }
   })
 
   const toggle = useToggleSettingsMenu()

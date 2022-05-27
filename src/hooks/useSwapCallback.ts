@@ -14,7 +14,7 @@ import { useBlockGasLimit } from '../state/application/hooks'
 export enum SwapCallbackState {
   INVALID,
   LOADING,
-  VALID,
+  VALID
 }
 
 interface SwapCall {
@@ -65,7 +65,7 @@ function useSwapCallArguments(
         feeOnTransfer: false,
         allowedSlippage: new Percent(JSBI.BigInt(allowedSlippage), BIPS_BASE),
         recipient,
-        ttl: deadline.toNumber(),
+        ttl: deadline.toNumber()
       })
     )
 
@@ -75,12 +75,12 @@ function useSwapCallArguments(
           feeOnTransfer: true,
           allowedSlippage: new Percent(JSBI.BigInt(allowedSlippage), BIPS_BASE),
           recipient,
-          ttl: deadline.toNumber(),
+          ttl: deadline.toNumber()
         })
       )
     }
 
-    return swapMethods.map((parameters) => ({ parameters, contract }))
+    return swapMethods.map(parameters => ({ parameters, contract }))
   }, [account, allowedSlippage, chainId, deadline, library, recipient, trade])
 }
 
@@ -117,29 +117,29 @@ export function useSwapCallback(
       state: SwapCallbackState.VALID,
       callback: async function onSwap(): Promise<string> {
         const estimatedCalls: EstimatedSwapCall[] = await Promise.all(
-          swapCalls.map((call) => {
+          swapCalls.map(call => {
             const {
               parameters: { methodName, args, value },
-              contract,
+              contract
             } = call
             const options = !value || isZero(value) ? {} : { value }
 
             return contract.estimateGas[methodName](...args, { ...options, gasLimit: 1000000 })
-              .then((gasEstimate) => {
+              .then(gasEstimate => {
                 return {
                   call,
-                  gasEstimate,
+                  gasEstimate
                 }
               })
-              .catch((gasError) => {
+              .catch(gasError => {
                 console.debug('Gas estimate failed, trying eth_call to extract error', call)
 
                 return contract.callStatic[methodName](...args, options)
-                  .then((result) => {
+                  .then(result => {
                     console.debug('Unexpected successful call after failed estimate gas', call, gasError, result)
                     return { call, error: new Error('Unexpected issue with estimating the gas. Please try again.') }
                   })
-                  .catch((callError) => {
+                  .catch(callError => {
                     console.debug('Call threw error', call, callError)
                     let errorMessage: string
                     switch (callError.reason) {
@@ -172,14 +172,14 @@ export function useSwapCallback(
         const {
           call: {
             contract,
-            parameters: { methodName, args, value },
+            parameters: { methodName, args, value }
           },
-          gasEstimate,
+          gasEstimate
         } = successfulEstimation
 
         return contract[methodName](...args, {
           gasLimit: calculateGasMargin(gasEstimate, blockGasLimit),
-          ...(value && !isZero(value) ? { value, from: account } : { from: account }),
+          ...(value && !isZero(value) ? { value, from: account } : { from: account })
         })
           .then((response: any) => {
             const inputSymbol = trade.inputAmount.currency.symbol
@@ -201,7 +201,7 @@ export function useSwapCallback(
                   }`
 
             addTransaction(response, {
-              summary: withRecipient,
+              summary: withRecipient
             })
 
             return response.hash
@@ -217,7 +217,7 @@ export function useSwapCallback(
             }
           })
       },
-      error: null,
+      error: null
     }
   }, [trade, library, account, chainId, blockGasLimit, recipient, recipientAddressOrName, swapCalls, addTransaction])
 }

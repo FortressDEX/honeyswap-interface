@@ -23,7 +23,7 @@ const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
   [ChainId.SOKOL]: '',
   [ChainId.XDAI]: '',
   [ChainId.MATIC]: '',
-  [ChainId.CANDLE]: '',
+  [ChainId.CANDLE]: ''
 }
 
 const getExplorerPrefix = (chainId: ChainId) => {
@@ -98,7 +98,7 @@ export function calculateSlippageAmount(value: CurrencyAmount, slippage: number)
   }
   return [
     JSBI.divide(JSBI.multiply(value.raw, JSBI.BigInt(10000 - slippage)), JSBI.BigInt(10000)),
-    JSBI.divide(JSBI.multiply(value.raw, JSBI.BigInt(10000 + slippage)), JSBI.BigInt(10000)),
+    JSBI.divide(JSBI.multiply(value.raw, JSBI.BigInt(10000 + slippage)), JSBI.BigInt(10000))
   ]
 }
 
@@ -147,5 +147,5 @@ export function isTokenOnList(defaultTokens: TokenAddressMap, currency: Currency
 
 export function isPairOnList(pairs: Pair[], pair?: Pair): boolean {
   if (!pair) return false
-  return !!pairs.find((loopedPair) => loopedPair.equals(pair))
+  return !!pairs.find(loopedPair => loopedPair.equals(pair))
 }

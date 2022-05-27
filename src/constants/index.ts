@@ -20,13 +20,7 @@ export const DAI: { [key: number]: Token } = {
   ),
   [ChainId.XDAI]: new Token(ChainId.XDAI, '0x44fa8e6f47987339850636f88629646662444217', 18, 'DAI', 'Dai Stablecoin'),
   [ChainId.MATIC]: new Token(ChainId.MATIC, '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063', 18, 'DAI', 'Dai Stablecoin'),
-  [ChainId.CANDLE]: new Token(
-    ChainId.CANDLE,
-    '0xad43669cbAC863e33449d423261E525de8da0Ff4',
-    18,
-    'DAI',
-    'Dai Stablecoin'
-  ), // updated Dai address for Candle. Need to verify
+  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0xad43669cbAC863e33449d423261E525de8da0Ff4', 18, 'DAI', 'Dai Stablecoin') // updated Dai address for Candle. Need to verify
 }
 
 export const USDC: { [key: number]: Token } = {
@@ -39,7 +33,7 @@ export const USDC: { [key: number]: Token } = {
     'USD//C from Ethereum'
   ),
   [ChainId.MATIC]: new Token(ChainId.MATIC, '0x2791bca1f2de4661ed88a30c99a7a9449aa84174', 6, 'USDC', 'PoS USDC'),
-  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0x2791bca1f2de4661ed88a30c99a7a9449aa84174', 6, 'USDC', 'PoS USDC'),
+  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0x2791bca1f2de4661ed88a30c99a7a9449aa84174', 6, 'USDC', 'PoS USDC')
 }
 
 export const USDT: { [key: number]: Token } = {
@@ -52,13 +46,7 @@ export const USDT: { [key: number]: Token } = {
     'Tether USD from Ethereum'
   ),
   [ChainId.MATIC]: new Token(ChainId.MATIC, '0xc2132d05d31c914a87c6611c10748aeb04b58e8f', 6, 'USDT', 'PoS Tether USD'),
-  [ChainId.CANDLE]: new Token(
-    ChainId.CANDLE,
-    '0xc2132d05d31c914a87c6611c10748aeb04b58e8f',
-    6,
-    'USDT',
-    'PoS Tether USD'
-  ),
+  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0xc2132d05d31c914a87c6611c10748aeb04b58e8f', 6, 'USDT', 'PoS Tether USD')
 }
 
 export const WBTC: { [key: number]: Token } = {
@@ -75,13 +63,13 @@ export const WBTC: { [key: number]: Token } = {
     18,
     'WBTC',
     'Wrapped BTC from Ethereum'
-  ),
+  )
 }
 
 export const HONEY: { [key: number]: Token } = {
   [ChainId.XDAI]: new Token(ChainId.XDAI, '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9', 18, 'HNY', 'Honey'),
   [ChainId.MATIC]: new Token(ChainId.MATIC, '0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b', 18, 'HNY', 'Honey'),
-  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0xa018034190943D6c8E10218d9F8E8Af491272411', 18, 'HNY', 'Honey'), // changed to shiba for now to test
+  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0xa018034190943D6c8E10218d9F8E8Af491272411', 18, 'HNY', 'Honey') // changed to shiba for now to test
 }
 
 export const STAKE = new Token(
@@ -163,7 +151,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     DAI[ChainId.MAINNET],
     USDC[ChainId.MAINNET],
     WBTC[ChainId.MAINNET],
-    USDT[ChainId.MAINNET],
+    USDT[ChainId.MAINNET]
   ],
   [ChainId.RINKEBY]: [WETH[ChainId.RINKEBY]],
   [ChainId.ARBITRUM_TESTNET_V3]: [WETH[ChainId.ARBITRUM_TESTNET_V3]],
@@ -182,7 +170,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     WATER,
     BRIGHT,
     WORK,
-    FOX,
+    FOX
   ],
   [ChainId.MATIC]: [
     WETH[ChainId.MATIC],
@@ -192,19 +180,19 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDC[ChainId.MATIC],
     USDT[ChainId.MATIC],
     SURF,
-    WAVE,
+    WAVE
   ],
   [ChainId.CANDLE]: [
     WETH[ChainId.CANDLE],
     WCNDL[ChainId.CANDLE],
     HONEY[ChainId.CANDLE],
     DAI[ChainId.CANDLE],
-    SHIBA,
+    SHIBA
     //  USDC[ChainId.MATIC],
     //  USDT[ChainId.MATIC],
     //    SURF,
     //    WAVE
-  ],
+  ]
 }
 
 // used for display in the default list when adding liquidity (native currency is already shown
@@ -216,7 +204,7 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.SOKOL]: [],
   [ChainId.XDAI]: [WETH[ChainId.XDAI], USDC[ChainId.XDAI], HONEY[ChainId.XDAI]],
   [ChainId.MATIC]: [WETH[ChainId.MATIC], HONEY[ChainId.MATIC]],
-  [ChainId.CANDLE]: [WETH[ChainId.CANDLE], HONEY[ChainId.MATIC], SHIBA, DAI[ChainId.CANDLE]],
+  [ChainId.CANDLE]: [WETH[ChainId.CANDLE], HONEY[ChainId.MATIC], SHIBA, DAI[ChainId.CANDLE]]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -232,24 +220,24 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     HONEY[ChainId.MATIC],
     DAI[ChainId.MATIC],
     USDC[ChainId.MATIC],
-    USDT[ChainId.MATIC],
+    USDT[ChainId.MATIC]
   ],
   [ChainId.CANDLE]: [
     WCNDL[ChainId.CANDLE],
     WETH[ChainId.CANDLE],
     HONEY[ChainId.CANDLE],
     DAI[ChainId.CANDLE],
-    SHIBA,
+    SHIBA
     //  USDC[ChainId.CANDLE],
     //  USDT[ChainId.CANDLE]
-  ],
+  ]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
   [ChainId.MAINNET]: [
     [USDC[ChainId.MAINNET], USDT[ChainId.MAINNET]],
-    [DAI[ChainId.MAINNET], USDT[ChainId.MAINNET]],
-  ],
+    [DAI[ChainId.MAINNET], USDT[ChainId.MAINNET]]
+  ]
 }
 
 export interface WalletInfo {
@@ -272,7 +260,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     description: 'Injected web3 provider.',
     href: null,
     color: '#010101',
-    primary: true,
+    primary: true
   },
   METAMASK: {
     connector: injected,
@@ -280,7 +268,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     iconName: 'metamask.png',
     description: 'Easy-to-use browser extension.',
     href: null,
-    color: '#E8831D',
+    color: '#E8831D'
   },
   WALLET_LINK: {
     connector: walletlink,
@@ -288,7 +276,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     iconName: 'coinbaseWalletIcon.svg',
     description: 'Use Coinbase Wallet app on mobile device',
     href: null,
-    color: '#315CF5',
+    color: '#315CF5'
   },
   WALLET_CONNECT_XDAI: {
     connector: walletConnectXDAI,
@@ -297,7 +285,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
     href: null,
     color: '#4196FC',
-    mobile: true,
+    mobile: true
   },
   WALLET_CONNECT_MATIC: {
     connector: walletConnectMATIC,
@@ -306,7 +294,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
     href: null,
     color: '#4196FC',
-    mobile: true,
+    mobile: true
   },
   WALLET_CONNECT_CANDLE: {
     connector: walletConnectCANDLE,
@@ -315,8 +303,8 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
     href: null,
     color: '#4196FC',
-    mobile: true,
-  },
+    mobile: true
+  }
 }
 
 export const NetworkContextName = 'NETWORK'
@@ -370,10 +358,10 @@ export const NETWORK_DETAIL: { [chainId: number]: NetworkDetails } = {
     nativeCurrency: {
       name: Currency.ETHER.name || 'Ether',
       symbol: Currency.ETHER.symbol || 'ETH',
-      decimals: Currency.ETHER.decimals || 18,
+      decimals: Currency.ETHER.decimals || 18
     },
     rpcUrls: ['https://mainnet.infura.io/v3'],
-    blockExplorerUrls: ['https://etherscan.io'],
+    blockExplorerUrls: ['https://etherscan.io']
   },
   [ChainId.XDAI]: {
     chainId: `0x${ChainId.XDAI.toString(16)}`,
@@ -381,11 +369,11 @@ export const NETWORK_DETAIL: { [chainId: number]: NetworkDetails } = {
     nativeCurrency: {
       name: Currency.XDAI.name || 'xDAI',
       symbol: Currency.XDAI.symbol || 'xDAI',
-      decimals: Currency.XDAI.decimals || 18,
+      decimals: Currency.XDAI.decimals || 18
     },
     rpcUrls: ['https://poa-xdai.gateway.pokt.network/v1/lb/61140fc659501900341babff'],
     blockExplorerUrls: ['https://blockscout.com/xdai/mainnet'],
-    metamaskAddable: true,
+    metamaskAddable: true
   },
   [ChainId.MATIC]: {
     chainId: `0x${ChainId.MATIC.toString(16)}`,
@@ -393,12 +381,12 @@ export const NETWORK_DETAIL: { [chainId: number]: NetworkDetails } = {
     nativeCurrency: {
       name: Currency.MATIC.name || 'Matic',
       symbol: Currency.MATIC.symbol || 'MATIC',
-      decimals: Currency.MATIC.decimals || 18,
+      decimals: Currency.MATIC.decimals || 18
     },
     // rpcUrls: [`https://rpc-mainnet.maticvigil.com/v1/${MATIC_PROJECT_ID}`],
     rpcUrls: ['https://poly-mainnet.gateway.pokt.network/v1/lb/61141e8259501900341bb3e2'],
     blockExplorerUrls: ['https://explorer.matic.network/'],
-    metamaskAddable: true,
+    metamaskAddable: true
   },
   [ChainId.CANDLE]: {
     chainId: `0x${ChainId.CANDLE.toString(16)}`,
@@ -406,11 +394,11 @@ export const NETWORK_DETAIL: { [chainId: number]: NetworkDetails } = {
     nativeCurrency: {
       name: Currency.CANDLE.name || 'Candle',
       symbol: Currency.CANDLE.symbol || 'CNDL',
-      decimals: Currency.CANDLE.decimals || 18,
+      decimals: Currency.CANDLE.decimals || 18
     },
     // rpcUrls: [`https://rpc-mainnet.maticvigil.com/v1/${MATIC_PROJECT_ID}`],
     rpcUrls: ['https://rpc.cndlchain.com'],
     blockExplorerUrls: ['https://candleexplorer.com/'],
-    metamaskAddable: true,
-  },
+    metamaskAddable: true
+  }
 }

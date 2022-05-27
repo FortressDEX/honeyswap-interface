@@ -74,7 +74,7 @@ function TokenWarningCard({ token }: TokenWarningCardProps) {
 export default function TokenWarningModal({
   isOpen,
   tokens,
-  onConfirm,
+  onConfirm
 }: {
   isOpen: boolean
   tokens: Token[]
@@ -120,7 +120,7 @@ export default function TokenWarningModal({
               </TYPE.body>
             </UpperSectionContainer>
             <BottomSectionContainer>
-              {tokens.map((token) => {
+              {tokens.map(token => {
                 return <TokenWarningCard key={token.address} token={token} />
               })}
               <RowBetween marginTop="24px">

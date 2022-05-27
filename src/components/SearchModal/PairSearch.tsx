@@ -72,7 +72,7 @@ export function PairSearch({ selectedPair, onPairSelect, onDismiss, isOpen, filt
 
   // manage focus on modal show
   const inputRef = useRef<HTMLInputElement>()
-  const handleInput = useCallback((event) => {
+  const handleInput = useCallback(event => {
     const input = event.target.value
     const checksummedInput = isAddress(input)
     setSearchQuery(checksummedInput || input)
@@ -119,7 +119,7 @@ export function PairSearch({ selectedPair, onPairSelect, onDismiss, isOpen, filt
             <TYPE.body fontSize="11px" lineHeight="13px" letterSpacing="0.06em">
               NAME
             </TYPE.body>
-            <SortButton ascending={invertSearchOrder} toggleSortOrder={() => setInvertSearchOrder((iso) => !iso)} />
+            <SortButton ascending={invertSearchOrder} toggleSortOrder={() => setInvertSearchOrder(iso => !iso)} />
           </RowBetween>
         </PaddedColumn>
 

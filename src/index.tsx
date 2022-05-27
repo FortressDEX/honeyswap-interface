@@ -27,7 +27,7 @@ if ('ethereum' in window) {
   ;(window.ethereum as any).autoRefreshOnNetworkChange = false
 }
 
-window.addEventListener('error', (error) => {
+window.addEventListener('error', error => {
   console.error(`${error.message} @ ${error.filename}:${error.lineno}:${error.colno}`)
 })
 

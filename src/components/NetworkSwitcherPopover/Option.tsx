@@ -56,7 +56,7 @@ export default function Option({
   header,
   logoSrc,
   active = false,
-  disabled = false,
+  disabled = false
 }: {
   clickable?: boolean
   onClick?: any

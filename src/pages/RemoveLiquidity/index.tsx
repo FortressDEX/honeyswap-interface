@@ -53,18 +53,19 @@ const StyledInternalLinkText = styled(TYPE.body)`
 export default function RemoveLiquidity({
   history,
   match: {
-    params: { currencyIdA, currencyIdB },
-  },
+    params: { currencyIdA, currencyIdB }
+  }
 }: RouteComponentProps<{ currencyIdA: string; currencyIdB: string }>) {
   const [currencyA, currencyB] = [useCurrency(currencyIdA) ?? undefined, useCurrency(currencyIdB) ?? undefined]
   const { account, chainId, library } = useActiveWeb3React()
   const blockGasLimit = useBlockGasLimit()
   const nativeCurrency = useNativeCurrency()
   const nativeCurrencyWrapper = useWrappingToken(nativeCurrency)
-  const [tokenA, tokenB] = useMemo(
-    () => [wrappedCurrency(currencyA, chainId), wrappedCurrency(currencyB, chainId)],
-    [currencyA, currencyB, chainId]
-  )
+  const [tokenA, tokenB] = useMemo(() => [wrappedCurrency(currencyA, chainId), wrappedCurrency(currencyB, chainId)], [
+    currencyA,
+    currencyB,
+    chainId
+  ])
 
   const theme = useContext(ThemeContext)
 
@@ -100,7 +101,7 @@ export default function RemoveLiquidity({
     [Field.CURRENCY_A]:
       independentField === Field.CURRENCY_A ? typedValue : parsedAmounts[Field.CURRENCY_A]?.toSignificant(6) ?? '',
     [Field.CURRENCY_B]:
-      independentField === Field.CURRENCY_B ? typedValue : parsedAmounts[Field.CURRENCY_B]?.toSignificant(6) ?? '',
+      independentField === Field.CURRENCY_B ? typedValue : parsedAmounts[Field.CURRENCY_B]?.toSignificant(6) ?? ''
   }
 
   const { protocolFee } = calculateProtocolFee(
@@ -138,18 +139,15 @@ export default function RemoveLiquidity({
     [_onUserInput]
   )
 
-  const onLiquidityInput = useCallback(
-    (typedValue: string): void => onUserInput(Field.LIQUIDITY, typedValue),
-    [onUserInput]
-  )
-  const onCurrencyAInput = useCallback(
-    (typedValue: string): void => onUserInput(Field.CURRENCY_A, typedValue),
-    [onUserInput]
-  )
-  const onCurrencyBInput = useCallback(
-    (typedValue: string): void => onUserInput(Field.CURRENCY_B, typedValue),
-    [onUserInput]
-  )
+  const onLiquidityInput = useCallback((typedValue: string): void => onUserInput(Field.LIQUIDITY, typedValue), [
+    onUserInput
+  ])
+  const onCurrencyAInput = useCallback((typedValue: string): void => onUserInput(Field.CURRENCY_A, typedValue), [
+    onUserInput
+  ])
+  const onCurrencyBInput = useCallback((typedValue: string): void => onUserInput(Field.CURRENCY_B, typedValue), [
+    onUserInput
+  ])
 
   // tx sending
   const addTransaction = useTransactionAdder()
@@ -163,7 +161,7 @@ export default function RemoveLiquidity({
 
     const amountsMin = {
       [Field.CURRENCY_A]: calculateSlippageAmount(currencyAmountA, allowedSlippage)[0],
-      [Field.CURRENCY_B]: calculateSlippageAmount(currencyAmountB, allowedSlippage)[0],
+      [Field.CURRENCY_B]: calculateSlippageAmount(currencyAmountB, allowedSlippage)[0]
     }
 
     if (!currencyA || !currencyB) throw new Error('missing tokens')
@@ -187,7 +185,7 @@ export default function RemoveLiquidity({
           amountsMin[currencyBIsNative ? Field.CURRENCY_A : Field.CURRENCY_B].toString(),
           amountsMin[currencyBIsNative ? Field.CURRENCY_B : Field.CURRENCY_A].toString(),
           account,
-          deadline.toHexString(),
+          deadline.toHexString()
         ]
       }
       // removeLiquidity
@@ -200,7 +198,7 @@ export default function RemoveLiquidity({
           amountsMin[Field.CURRENCY_A].toString(),
           amountsMin[Field.CURRENCY_B].toString(),
           account,
-          deadline.toHexString(),
+          deadline.toHexString()
         ]
       }
     }
@@ -219,7 +217,7 @@ export default function RemoveLiquidity({
           false,
           signatureData.v,
           signatureData.r,
-          signatureData.s,
+          signatureData.s
         ]
       }
       // removeLiquidityETHWithPermit
@@ -236,7 +234,7 @@ export default function RemoveLiquidity({
           false,
           signatureData.v,
           signatureData.r,
-          signatureData.s,
+          signatureData.s
         ]
       }
     } else {
@@ -244,17 +242,17 @@ export default function RemoveLiquidity({
     }
 
     const safeGasEstimates: (BigNumber | undefined)[] = await Promise.all(
-      methodNames.map((methodName) =>
+      methodNames.map(methodName =>
         router.estimateGas[methodName](...args)
-          .then((estimatedGas) => calculateGasMargin(estimatedGas, blockGasLimit))
-          .catch((error) => {
+          .then(estimatedGas => calculateGasMargin(estimatedGas, blockGasLimit))
+          .catch(error => {
             console.error(`estimateGas failed`, methodName, args, error)
             return undefined
           })
       )
     )
 
-    const indexOfSuccessfulEstimation = safeGasEstimates.findIndex((safeGasEstimate) =>
+    const indexOfSuccessfulEstimation = safeGasEstimates.findIndex(safeGasEstimate =>
       BigNumber.isBigNumber(safeGasEstimate)
     )
 
@@ -267,7 +265,7 @@ export default function RemoveLiquidity({
 
       setAttemptingTxn(true)
       await router[methodName](...args, {
-        gasLimit: safeGasEstimate,
+        gasLimit: safeGasEstimate
       })
         .then((response: TransactionResponse) => {
           setAttemptingTxn(false)
@@ -281,7 +279,7 @@ export default function RemoveLiquidity({
               ' and ' +
               parsedAmounts[Field.CURRENCY_B]?.toSignificant(3) +
               ' ' +
-              currencyB?.symbol,
+              currencyB?.symbol
           })
 
           setTxHash(response.hash)
@@ -324,9 +322,8 @@ export default function RemoveLiquidity({
         </RowBetween>
 
         <TYPE.italic fontSize={12} color={theme.text2} textAlign="left" padding={'12px 0 0 0'}>
-          {`Output is estimated. If the price changes by more than ${
-            allowedSlippage / 100
-          }% your transaction will revert.`}
+          {`Output is estimated. If the price changes by more than ${allowedSlippage /
+            100}% your transaction will revert.`}
         </TYPE.italic>
       </AutoColumn>
     )

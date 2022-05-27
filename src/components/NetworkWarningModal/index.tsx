@@ -29,7 +29,7 @@ const StyledWarningIcon = styled(AlertTriangle)`
 
 export default function NetworkWarningModal({
   isOpen,
-  targetedNetwork,
+  targetedNetwork
 }: {
   isOpen: boolean
   targetedNetwork?: ChainId
@@ -40,9 +40,9 @@ export default function NetworkWarningModal({
     window.ethereum
       .request({
         method: 'wallet_addEthereumChain',
-        params: [{ ...NETWORK_DETAIL[targetedNetwork], metamaskAddable: undefined }],
+        params: [{ ...NETWORK_DETAIL[targetedNetwork], metamaskAddable: undefined }]
       })
-      .catch((error) => {
+      .catch(error => {
         console.error(`error adding network to metamask`, error)
       })
   }, [targetedNetwork])

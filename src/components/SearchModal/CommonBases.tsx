@@ -14,7 +14,7 @@ import { useNativeCurrency } from '../../hooks/useNativeCurrency'
 export default function CommonBases({
   chainId,
   onSelect,
-  selectedCurrency,
+  selectedCurrency
 }: {
   chainId?: ChainId
   selectedCurrency?: Currency | null
@@ -48,7 +48,7 @@ export default function CommonBases({
           </RowBetween>
         </Option>
         {(chainId ? SUGGESTED_BASES[chainId] : [])
-          .filter((token) => token)
+          .filter(token => token)
           .map((token: Token) => {
             const selected = selectedCurrency instanceof Token && selectedCurrency.address === token.address
             return (

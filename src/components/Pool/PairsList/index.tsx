@@ -59,7 +59,7 @@ export default function PairsList({ aggregatedPairs, loading, userLpPairs, showM
         ) : itemsPage.length > 0 ? (
           <ListLayout>
             {showMyPairs && page === 1 && <MyPairs pairsAmount={userLpPairs?.length || 0} />}
-            {itemsPage.map((aggregatedPair) => {
+            {itemsPage.map(aggregatedPair => {
               return (
                 <UndecoratedLink
                   key={aggregatedPair.pair.liquidityToken.address}

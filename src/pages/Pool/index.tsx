@@ -75,13 +75,12 @@ export default function Pool() {
   const trackedTokenPairs = useTrackedTokenPairs()
 
   const tokenPairsWithLiquidityTokens = useMemo(
-    () => trackedTokenPairs.map((tokens) => ({ liquidityToken: toDXSwapLiquidityToken(tokens), tokens })),
+    () => trackedTokenPairs.map(tokens => ({ liquidityToken: toDXSwapLiquidityToken(tokens), tokens })),
     [trackedTokenPairs]
   )
-  const liquidityTokens = useMemo(
-    () => tokenPairsWithLiquidityTokens.map((tpwlt) => tpwlt.liquidityToken),
-    [tokenPairsWithLiquidityTokens]
-  )
+  const liquidityTokens = useMemo(() => tokenPairsWithLiquidityTokens.map(tpwlt => tpwlt.liquidityToken), [
+    tokenPairsWithLiquidityTokens
+  ])
   const [dxSwapPairsBalances] = useTokenBalancesWithLoadingIndicator(account ?? undefined, liquidityTokens)
 
   // fetch the reserves for all DXSwap pools in which the user has a balance
@@ -131,7 +130,7 @@ export default function Pool() {
                 </TYPE.body>
               </OutlineCard>
             ) : allDXSwapPairsWithLiquidity?.length > 0 ? (
-              allDXSwapPairsWithLiquidity.map((dxSwapPair) => (
+              allDXSwapPairsWithLiquidity.map(dxSwapPair => (
                 <FullPositionCard key={dxSwapPair.liquidityToken.address} pair={dxSwapPair} />
               ))
             ) : (

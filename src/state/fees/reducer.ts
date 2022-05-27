@@ -17,22 +17,22 @@ export interface FeesState {
 const initialState: FeesState = {
   swapFees: undefined,
   protocolFeeDenominator: 10,
-  protocolFeeTo: undefined,
+  protocolFeeTo: undefined
 }
 
-export default createReducer<FeesState>(initialState, (builder) =>
+export default createReducer<FeesState>(initialState, builder =>
   builder
     .addCase(setSwapFees, (state, { payload: { swapFees } }) => {
       return {
         ...state,
-        swapFees,
+        swapFees
       }
     })
     .addCase(setProtocolFee, (state, { payload: { protocolFeeDenominator, protocolFeeTo } }) => {
       return {
         ...state,
         protocolFeeDenominator,
-        protocolFeeTo,
+        protocolFeeTo
       }
     })
 )

@@ -48,7 +48,7 @@ const AnimatedFader = animated(Fader)
 export default function PopupItem({
   removeAfterMs,
   content,
-  popKey,
+  popKey
 }: {
   removeAfterMs: number | null
   content: PopupContent
@@ -78,7 +78,7 @@ export default function PopupItem({
   const faderStyle = useSpring({
     from: { width: '100%' },
     to: { width: '0%' },
-    config: { duration: removeAfterMs ?? undefined },
+    config: { duration: removeAfterMs ?? undefined }
   })
 
   return (

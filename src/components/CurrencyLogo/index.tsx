@@ -18,7 +18,7 @@ const StyledLogo = styled(Logo)<{ size: string }>`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
   border-radius: ${({ size }) => size};
-  border: solid 1px ${(props) => props.theme.bg1};
+  border: solid 1px ${props => props.theme.bg1};
   position: absolute;
   top: 0;
   bottom: 0;
@@ -32,7 +32,7 @@ const Wrapper = styled.div<{ size: string; marginRight: number; marginLeft: numb
   width: ${({ size }) => size};
   height: ${({ size }) => size};
   border-radius: ${({ size }) => size};
-  background-color: ${(props) => (props.loading ? 'transparent' : props.theme.bg1)};
+  background-color: ${props => (props.loading ? 'transparent' : props.theme.bg1)};
   position: relative;
 `
 
@@ -43,7 +43,7 @@ const NATIVE_CURRENCY_LOGO: { [chainId in ChainId]: string } = {
   [ChainId.SOKOL]: PoaLogo,
   [ChainId.XDAI]: XDAILogo,
   [ChainId.MATIC]: MaticLogo,
-  [ChainId.CANDLE]: CandleLogo,
+  [ChainId.CANDLE]: CandleLogo
 }
 
 export default function CurrencyLogo({
@@ -53,7 +53,7 @@ export default function CurrencyLogo({
   className,
   loading,
   marginRight = 0,
-  marginLeft = 0,
+  marginLeft = 0
 }: {
   currency?: Currency
   size?: string

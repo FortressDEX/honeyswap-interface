@@ -4,7 +4,7 @@ import { Box, Flex } from 'rebass'
 import { TYPE } from '../../../../theme'
 import TransactionConfirmationModal, {
   ConfirmationModalContent,
-  TransactionErrorContent,
+  TransactionErrorContent
 } from '../../../TransactionConfirmationModal'
 import ConfirmStakingModalFooter from '../ModalBase/Footer'
 
@@ -29,7 +29,7 @@ export default function ConfirmExitModal({
   txHash,
   errorMessage,
   onDismiss,
-  onConfirm,
+  onConfirm
 }: ConfirmExitModalProps) {
   const topContent = useCallback(
     () => (
@@ -38,8 +38,7 @@ export default function ConfirmExitModal({
           <TYPE.body fontWeight={500} fontSize="12px" color="text5">
             Confirming will withdraw {stakedTokenBalance?.toSignificant(4)} {stakablePair?.token0.symbol}/
             {stakablePair?.token1.symbol} LP tokens and claim{' '}
-            {claimableRewards?.map((claimable) => `${claimable.toSignificant(4)} ${claimable.token.symbol}`).join(', ')}
-            .
+            {claimableRewards?.map(claimable => `${claimable.toSignificant(4)} ${claimable.token.symbol}`).join(', ')}.
           </TYPE.body>
         </Box>
       </Flex>

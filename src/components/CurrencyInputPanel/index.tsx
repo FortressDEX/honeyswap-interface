@@ -143,7 +143,7 @@ export default function CurrencyInputPanel({
   id,
   showCommonBases,
   customBalanceText,
-  balance,
+  balance
 }: CurrencyInputPanelProps) {
   const { t } = useTranslation()
 
@@ -201,7 +201,7 @@ export default function CurrencyInputPanel({
                   value={value}
                   onFocus={handleFocus}
                   onBlur={handleBlur}
-                  onUserInput={(val) => {
+                  onUserInput={val => {
                     onUserInput(val)
                   }}
                 />

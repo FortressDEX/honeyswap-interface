@@ -53,7 +53,7 @@ const TextCard = styled(Card)`
 
 const LogoContainer = styled.div<{ size: number }>`
   margin: auto;
-  padding-left: ${(props) => `${props.size / 2}px`};
+  padding-left: ${props => `${props.size / 2}px`};
 `
 
 interface CardProps {
@@ -73,8 +73,8 @@ export const GovCard = ({ currency, currency1, apy, proposals }: CardProps) => {
     router.push({
       pathname: `/governance/${currency.symbol}/pairs`,
       state: {
-        currency: currency,
-      },
+        currency: currency
+      }
     })
   }
 

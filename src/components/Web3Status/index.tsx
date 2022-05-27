@@ -34,7 +34,7 @@ const ChainLogo: any = {
   [ChainId.SOKOL]: '',
   [ChainId.XDAI]: GnosisLogo,
   [ChainId.MATIC]: PolygonLogo,
-  [ChainId.CANDLE]: CandleLogo,
+  [ChainId.CANDLE]: CandleLogo
 }
 
 const ChainLabel: any = {
@@ -44,7 +44,7 @@ const ChainLabel: any = {
   [ChainId.SOKOL]: 'Sokol',
   [ChainId.XDAI]: 'Gnosis Chain',
   [ChainId.MATIC]: 'Polygon',
-  [ChainId.CANDLE]: 'Candle',
+  [ChainId.CANDLE]: 'Candle'
 }
 
 const IconWrapper = styled.div<{ size?: number | null }>`
@@ -170,7 +170,7 @@ function Web3StatusInner() {
     return txs.filter(isTransactionRecent).sort(newTransactionsFirst)
   }, [allTransactions])
 
-  const pending = sortedRecentTransactions.filter((tx) => !tx.receipt).map((tx) => tx.hash)
+  const pending = sortedRecentTransactions.filter(tx => !tx.receipt).map(tx => tx.hash)
 
   const hasPendingTransactions = !!pending.length
   const toggleWalletModal = useWalletModalToggle()
@@ -232,8 +232,8 @@ export default function Web3Status() {
     return txs.filter(isTransactionRecent).sort(newTransactionsFirst)
   }, [allTransactions])
 
-  const pending = sortedRecentTransactions.filter((tx) => !tx.receipt).map((tx) => tx.hash)
-  const confirmed = sortedRecentTransactions.filter((tx) => tx.receipt).map((tx) => tx.hash)
+  const pending = sortedRecentTransactions.filter(tx => !tx.receipt).map(tx => tx.hash)
+  const confirmed = sortedRecentTransactions.filter(tx => tx.receipt).map(tx => tx.hash)
 
   if (!contextNetwork.active && !active) {
     return null

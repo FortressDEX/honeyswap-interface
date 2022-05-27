@@ -46,7 +46,7 @@ const Badge = ({ icon: FeatherIcon, label, onClick }: BadgeProps) => {
 
 Badge.defaultProps = {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onIconClick: () => {},
+  onIconClick: () => {}
 }
 
 export default Badge

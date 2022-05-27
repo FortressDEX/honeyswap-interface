@@ -10,7 +10,7 @@ import { useNativeCurrency } from './useNativeCurrency'
 export enum WrapType {
   NOT_APPLICABLE,
   WRAP,
-  UNWRAP,
+  UNWRAP
 }
 
 const NOT_APPLICABLE = { wrapType: WrapType.NOT_APPLICABLE }
@@ -31,10 +31,11 @@ export default function useWrapCallback(
   const nativeCurrencyWrapperContract = useNativeCurrencyWrapperContract()
   const balance = useCurrencyBalance(account ?? undefined, inputCurrency)
   // we can always parse the amount typed as the input currency, since wrapping is 1:1
-  const inputAmount = useMemo(
-    () => tryParseAmount(typedValue, inputCurrency, chainId),
-    [inputCurrency, typedValue, chainId]
-  )
+  const inputAmount = useMemo(() => tryParseAmount(typedValue, inputCurrency, chainId), [
+    inputCurrency,
+    typedValue,
+    chainId
+  ])
   const addTransaction = useTransactionAdder()
 
   return useMemo(() => {
@@ -54,19 +55,19 @@ export default function useWrapCallback(
             ? async () => {
                 try {
                   const txReceipt = await nativeCurrencyWrapperContract.deposit({
-                    value: `0x${inputAmount.raw.toString(16)}`,
+                    value: `0x${inputAmount.raw.toString(16)}`
                   })
                   addTransaction(txReceipt, {
                     summary: `Wrap ${inputAmount.toSignificant(6)} ${nativeCurrency.symbol} to ${
                       nativeCurrencyWrapperToken.symbol
-                    }`,
+                    }`
                   })
                 } catch (error) {
                   console.error('Could not deposit', error)
                 }
               }
             : undefined,
-        inputError: sufficientBalance ? undefined : 'Insufficient ETH balance',
+        inputError: sufficientBalance ? undefined : 'Insufficient ETH balance'
       }
     } else if (
       nativeCurrencyWrapperToken &&
@@ -83,14 +84,14 @@ export default function useWrapCallback(
                   addTransaction(txReceipt, {
                     summary: `Unwrap ${inputAmount.toSignificant(6)} ${nativeCurrencyWrapperToken.symbol} to ${
                       nativeCurrency.symbol
-                    }`,
+                    }`
                   })
                 } catch (error) {
                   console.error('Could not withdraw', error)
                 }
               }
             : undefined,
-        inputError: sufficientBalance ? undefined : 'Insufficient WETH balance',
+        inputError: sufficientBalance ? undefined : 'Insufficient WETH balance'
       }
     } else {
       return NOT_APPLICABLE
@@ -104,6 +105,6 @@ export default function useWrapCallback(
     balance,
     nativeCurrencyWrapperToken,
     nativeCurrency,
-    addTransaction,
+    addTransaction
   ])
 }

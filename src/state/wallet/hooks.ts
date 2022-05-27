@@ -10,7 +10,9 @@ import { useSingleContractMultipleData, useMultipleContractSingleData } from '..
 /**
  * Returns a map of the given addresses to their eventually consistent native currenciy balances.
  */
-export function useNativeCurrencyBalances(uncheckedAddresses?: (string | undefined)[]): {
+export function useNativeCurrencyBalances(
+  uncheckedAddresses?: (string | undefined)[]
+): {
   [address: string]: CurrencyAmount | undefined
 } {
   const { chainId } = useActiveWeb3React()
@@ -32,7 +34,7 @@ export function useNativeCurrencyBalances(uncheckedAddresses?: (string | undefin
     // the name is misleading. Depending on the deployment network, the
     // function returns the native currency balance
     'getEthBalance',
-    addresses.map((address) => [address])
+    addresses.map(address => [address])
   )
 
   return useMemo(
@@ -58,11 +60,11 @@ export function useTokenBalancesWithLoadingIndicator(
     [tokens]
   )
 
-  const validatedTokenAddresses = useMemo(() => validatedTokens.map((vt) => vt.address), [validatedTokens])
+  const validatedTokenAddresses = useMemo(() => validatedTokens.map(vt => vt.address), [validatedTokens])
 
   const balances = useMultipleContractSingleData(validatedTokenAddresses, ERC20_INTERFACE, 'balanceOf', [address])
 
-  const anyLoading: boolean = useMemo(() => balances.some((callState) => callState.loading), [balances])
+  const anyLoading: boolean = useMemo(() => balances.some(callState => callState.loading), [balances])
 
   return [
     useMemo(
@@ -79,7 +81,7 @@ export function useTokenBalancesWithLoadingIndicator(
           : {},
       [address, validatedTokens, balances]
     ),
-    anyLoading,
+    anyLoading
   ]
 }
 
@@ -101,21 +103,20 @@ export function useCurrencyBalances(
   account?: string,
   currencies?: (Currency | undefined)[]
 ): (CurrencyAmount | undefined)[] {
-  const tokens = useMemo(
-    () => currencies?.filter((currency): currency is Token => currency instanceof Token) ?? [],
-    [currencies]
-  )
+  const tokens = useMemo(() => currencies?.filter((currency): currency is Token => currency instanceof Token) ?? [], [
+    currencies
+  ])
 
   const tokenBalances = useTokenBalances(account, tokens)
   const containsNativeCurrency: boolean = useMemo(
-    () => currencies?.some((currency) => !!(currency && Currency.isNative(currency))) ?? false,
+    () => currencies?.some(currency => !!(currency && Currency.isNative(currency))) ?? false,
     [currencies]
   )
   const nativeCurrencyBalance = useNativeCurrencyBalances(containsNativeCurrency ? [account] : [])
 
   return useMemo(
     () =>
-      currencies?.map((currency) => {
+      currencies?.map(currency => {
         if (!account || !currency) return undefined
         if (currency instanceof Token) return tokenBalances[currency.address]
         if (Currency.isNative(currency)) return nativeCurrencyBalance[account]

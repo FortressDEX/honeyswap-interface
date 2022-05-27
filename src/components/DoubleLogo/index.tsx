@@ -26,7 +26,7 @@ interface DoubleCurrencyLogoProps {
 
 const HigherLogo = styled(CurrencyLogo)<{ loading?: boolean }>`
   z-index: 2;
-  box-shadow: ${(props) => (props.loading ? 'none' : `0px 0px 8px ${transparentize(0.4, props.theme.black)}`)};
+  box-shadow: ${props => (props.loading ? 'none' : `0px 0px 8px ${transparentize(0.4, props.theme.black)}`)};
 `
 
 const CoveredLogo = styled(CurrencyLogo)`
@@ -40,7 +40,7 @@ export default function DoubleCurrencyLogo({
   loading,
   size = 16,
   marginRight = 0,
-  marginLeft = 0,
+  marginLeft = 0
 }: DoubleCurrencyLogoProps) {
   return (
     <Wrapper sizeraw={size} marginRight={marginRight} marginLeft={marginLeft}>

@@ -27,7 +27,7 @@ export function useNativeCurrencyUSDPrice(): { loading: boolean; nativeCurrencyU
         USD,
         parseUnits('1', USD.decimals).toString(),
         parseUnits(new Decimal(data.bundle.nativeCurrencyPrice).toFixed(18), USD.decimals).toString()
-      ),
+      )
     }
   }, [data, error, loading, nativeCurrency])
 }

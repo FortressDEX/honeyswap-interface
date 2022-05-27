@@ -24,7 +24,7 @@ function useAllCommonPairs(
 
   const basePairs: [Token, Token][] = useMemo(
     () =>
-      flatMap(bases, (base): [Token, Token][] => bases.map((otherBase) => [base, otherBase])).filter(
+      flatMap(bases, (base): [Token, Token][] => bases.map(otherBase => [base, otherBase])).filter(
         ([t0, t1]) => t0.address !== t1.address
       ),
     [bases]
@@ -41,7 +41,7 @@ function useAllCommonPairs(
             // token B against all bases
             ...bases.map((base): [Token, Token] => [tokenB, base]),
             // each base against all bases
-            ...basePairs,
+            ...basePairs
           ]
             .filter((tokens): tokens is [Token, Token] => Boolean(tokens[0] && tokens[1]))
             .filter(([t0, t1]) => t0.address !== t1.address)
@@ -125,7 +125,7 @@ export function useTradeExactInAllPlatforms(
     useTradeExactIn(currencyAmountIn, currencyOut, RoutablePlatform.SUSHISWAP),
     useTradeExactIn(currencyAmountIn, currencyOut, RoutablePlatform.BAOSWAP),
     useTradeExactIn(currencyAmountIn, currencyOut, RoutablePlatform.QUICKSWAP),
-    useTradeExactIn(currencyAmountIn, currencyOut, RoutablePlatform.HONEYSWAP),
+    useTradeExactIn(currencyAmountIn, currencyOut, RoutablePlatform.HONEYSWAP)
   ]
   return sortTradesByExecutionPrice(bestTrades)
 }
@@ -144,7 +144,7 @@ export function useTradeExactOutAllPlatforms(
     useTradeExactOut(currencyIn, currencyAmountOut, RoutablePlatform.SUSHISWAP),
     useTradeExactOut(currencyIn, currencyAmountOut, RoutablePlatform.BAOSWAP),
     useTradeExactOut(currencyIn, currencyAmountOut, RoutablePlatform.QUICKSWAP),
-    useTradeExactOut(currencyIn, currencyAmountOut, RoutablePlatform.HONEYSWAP),
+    useTradeExactOut(currencyIn, currencyAmountOut, RoutablePlatform.HONEYSWAP)
   ]
   return sortTradesByExecutionPrice(bestTrades)
 }

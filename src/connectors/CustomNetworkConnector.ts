@@ -39,8 +39,8 @@ class CustomMiniRpcProvider implements AsyncSendable {
     callback: (error: any, response: any) => void
   ): void => {
     this.request(request.method, request.params)
-      .then((result) => callback(null, { jsonrpc: '2.0', id: request.id, result }))
-      .catch((error) => callback(error, null))
+      .then(result => callback(null, { jsonrpc: '2.0', id: request.id, result }))
+      .catch(error => callback(error, null))
   }
 
   public readonly request = async (
@@ -55,14 +55,14 @@ class CustomMiniRpcProvider implements AsyncSendable {
     const response = await fetch(this.url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         jsonrpc: '2.0',
         id: 1,
         method,
-        params,
-      }),
+        params
+      })
     })
     if (!response.ok) throw new RequestError(`${response.status}: ${response.statusText}`, -32000)
     const body = await response.json()

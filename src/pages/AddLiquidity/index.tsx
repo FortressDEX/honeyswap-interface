@@ -44,9 +44,9 @@ import { useTargetedChainIdFromUrl } from '../../hooks/useTargetedChainIdFromUrl
 
 export default function AddLiquidity({
   match: {
-    params: { currencyIdA, currencyIdB },
+    params: { currencyIdA, currencyIdB }
   },
-  history,
+  history
 }: RouteComponentProps<{ currencyIdA?: string; currencyIdB?: string }>) {
   const { account, chainId, library } = useActiveWeb3React()
   const theme = useContext(ThemeContext)
@@ -82,7 +82,7 @@ export default function AddLiquidity({
     noLiquidity,
     liquidityMinted,
     poolTokenPercentage,
-    error,
+    error
   } = useDerivedMintInfo(currencyA ?? undefined, currencyB ?? undefined)
   const { onFieldAInput, onFieldBInput } = useMintActionHandlers(noLiquidity)
 
@@ -101,7 +101,7 @@ export default function AddLiquidity({
   // get formatted amounts
   const formattedAmounts = {
     [independentField]: typedValue,
-    [dependentField]: noLiquidity ? otherTypedValue : parsedAmounts[dependentField]?.toSignificant(6) ?? '',
+    [dependentField]: noLiquidity ? otherTypedValue : parsedAmounts[dependentField]?.toSignificant(6) ?? ''
   }
 
   const { protocolFee } = calculateProtocolFee(pair, parsedAmounts[independentField], chainId)
@@ -112,7 +112,7 @@ export default function AddLiquidity({
     (accumulator, field) => {
       return {
         ...accumulator,
-        [field]: maxAmountSpend(currencyBalances[field], chainId),
+        [field]: maxAmountSpend(currencyBalances[field], chainId)
       }
     },
     {}
@@ -122,7 +122,7 @@ export default function AddLiquidity({
     (accumulator, field) => {
       return {
         ...accumulator,
-        [field]: maxAmounts[field]?.equalTo(parsedAmounts[field] ?? '0'),
+        [field]: maxAmounts[field]?.equalTo(parsedAmounts[field] ?? '0')
       }
     },
     {}
@@ -146,7 +146,7 @@ export default function AddLiquidity({
 
     const amountsMin = {
       [Field.CURRENCY_A]: calculateSlippageAmount(parsedAmountA, noLiquidity ? 0 : allowedSlippage)[0],
-      [Field.CURRENCY_B]: calculateSlippageAmount(parsedAmountB, noLiquidity ? 0 : allowedSlippage)[0],
+      [Field.CURRENCY_B]: calculateSlippageAmount(parsedAmountB, noLiquidity ? 0 : allowedSlippage)[0]
     }
 
     let estimate,
@@ -163,7 +163,7 @@ export default function AddLiquidity({
         amountsMin[tokenBIsNative ? Field.CURRENCY_A : Field.CURRENCY_B].toString(), // token min
         amountsMin[tokenBIsNative ? Field.CURRENCY_B : Field.CURRENCY_A].toString(), // eth min
         account,
-        deadline.toHexString(),
+        deadline.toHexString()
       ]
       value = BigNumber.from((tokenBIsNative ? parsedAmountB : parsedAmountA).raw.toString())
     } else {
@@ -177,18 +177,18 @@ export default function AddLiquidity({
         amountsMin[Field.CURRENCY_A].toString(),
         amountsMin[Field.CURRENCY_B].toString(),
         account,
-        deadline.toHexString(),
+        deadline.toHexString()
       ]
       value = null
     }
 
     setAttemptingTxn(true)
     await estimate(...args, value ? { value } : {})
-      .then((estimatedGasLimit) =>
+      .then(estimatedGasLimit =>
         method(...args, {
           ...(value ? { value } : {}),
-          gasLimit: calculateGasMargin(estimatedGasLimit, blockGasLimit),
-        }).then((response) => {
+          gasLimit: calculateGasMargin(estimatedGasLimit, blockGasLimit)
+        }).then(response => {
           setAttemptingTxn(false)
 
           addTransaction(response, {
@@ -200,13 +200,13 @@ export default function AddLiquidity({
               ' and ' +
               parsedAmounts[Field.CURRENCY_B]?.toSignificant(3) +
               ' ' +
-              currencies[Field.CURRENCY_B]?.symbol,
+              currencies[Field.CURRENCY_B]?.symbol
           })
 
           setTxHash(response.hash)
         })
       )
-      .catch((error) => {
+      .catch(error => {
         setAttemptingTxn(false)
         // we only care if the error is something _other_ than the user rejected the tx
         if (error?.code !== 4001) {
@@ -251,9 +251,8 @@ export default function AddLiquidity({
           </Text>
         </Row>
         <TYPE.italic fontSize={12} textAlign="left" padding={'8px 0 0 0 '}>
-          {`Output is estimated. If the price changes by more than ${
-            allowedSlippage / 100
-          }% your transaction will revert.`}
+          {`Output is estimated. If the price changes by more than ${allowedSlippage /
+            100}% your transaction will revert.`}
         </TYPE.italic>
       </AutoColumn>
     )

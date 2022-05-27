@@ -19,12 +19,12 @@ export default function Updater(): null {
   }>({
     chainId,
     blockNumber: null,
-    blockGasLimit: null,
+    blockGasLimit: null
   })
 
   const blockNumberCallback = useCallback(
     (blockNumber: number) => {
-      library?.getBlock(blockNumber).then((block) => {
+      library?.getBlock(blockNumber).then(block => {
         setState((state: any) => {
           if (chainId === state.chainId) {
             if (typeof state.blockNumber !== 'number') return { chainId, blockNumber, blockGasLimit: block.gasLimit }
@@ -46,7 +46,7 @@ export default function Updater(): null {
     library
       .getBlockNumber()
       .then(blockNumberCallback)
-      .catch((error) => console.error(`Failed to get block number for chainId: ${chainId}`, error))
+      .catch(error => console.error(`Failed to get block number for chainId: ${chainId}`, error))
 
     library.on('block', blockNumberCallback)
     return () => {
@@ -63,7 +63,7 @@ export default function Updater(): null {
     dispatch(
       updateBlockGasLimit({
         chainId: debouncedState.chainId,
-        blockGasLimit: debouncedState.blockGasLimit.toHexString(),
+        blockGasLimit: debouncedState.blockGasLimit.toHexString()
       })
     )
   }, [windowVisible, dispatch, debouncedState.blockNumber, debouncedState.chainId, debouncedState.blockGasLimit])

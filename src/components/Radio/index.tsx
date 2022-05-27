@@ -7,8 +7,8 @@ const Container = styled.label<{ disabled?: boolean }>`
   align-items: center;
   position: relative;
   padding-left: 20px;
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
-  opacity: ${(props) => (props.disabled ? 0.4 : 1)};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
+  opacity: ${props => (props.disabled ? 0.4 : 1)};
 `
 
 const OuterCheckmark = styled.span`
@@ -20,7 +20,7 @@ const OuterCheckmark = styled.span`
   box-sizing: border-box;
   background-color: transparent;
   border-radius: 50%;
-  border: solid 1.5px ${(props) => props.theme.white};
+  border: solid 1.5px ${props => props.theme.white};
 `
 
 const Label = styled.span`
@@ -29,7 +29,7 @@ const Label = styled.span`
   line-height: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: ${(props) => props.theme.white};
+  color: ${props => props.theme.white};
 `
 
 const Icon = styled.div`
@@ -44,10 +44,10 @@ const Checkmark = styled.span<{ checked?: boolean }>`
   left: 1.5px;
   height: 8px;
   width: 8px;
-  background-color: ${(props) => (props.checked ? props.theme.white : 'transparent')};
+  background-color: ${props => (props.checked ? props.theme.white : 'transparent')};
   border-radius: 50%;
   transition: opacity.3s ease;
-  opacity: ${(props) => (props.checked ? 1 : 0)};
+  opacity: ${props => (props.checked ? 1 : 0)};
 `
 
 interface RadioProps {

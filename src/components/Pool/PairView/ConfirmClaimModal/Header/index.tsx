@@ -20,14 +20,14 @@ export default function ConfirmClaimModalHeader({ claimableRewards, onAmountChan
   return (
     <Root>
       <AutoColumn gap="8px">
-        {claimableRewards.map((claimableReward) => {
+        {claimableRewards.map(claimableReward => {
           const rewardToken = claimableReward.token
           const rewardTokenAddress = rewardToken.address
           return (
             <CurrencyInputPanel
               key={rewardTokenAddress}
               value={typedAmount[rewardTokenAddress] || ''}
-              onUserInput={(input) => {
+              onUserInput={input => {
                 setTypedAmount({ ...typedAmount, [rewardTokenAddress]: input })
                 const parsedAmount = tryParseAmount(input, rewardToken) as TokenAmount | undefined
                 if (parsedAmount) {

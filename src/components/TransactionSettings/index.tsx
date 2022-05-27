@@ -13,11 +13,11 @@ import { Option } from '../Option'
 enum SlippageError {
   InvalidInput = 'InvalidInput',
   RiskyLow = 'RiskyLow',
-  RiskyHigh = 'RiskyHigh',
+  RiskyHigh = 'RiskyHigh'
 }
 
 enum DeadlineError {
-  InvalidInput = 'InvalidInput',
+  InvalidInput = 'InvalidInput'
 }
 
 const Input = styled.input`
@@ -192,7 +192,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
                   setSlippageFocused(false)
                   parseCustomSlippage((rawSlippage / 100).toFixed(2))
                 }}
-                onChange={(e) => parseCustomSlippage(e.target.value)}
+                onChange={e => parseCustomSlippage(e.target.value)}
                 color={!slippageInputIsValid ? 'red' : ''}
               />
               %
@@ -235,7 +235,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
               }}
               placeholder={(deadline / 60).toString()}
               value={deadlineInput}
-              onChange={(e) => parseCustomDeadline(e.target.value)}
+              onChange={e => parseCustomDeadline(e.target.value)}
             />
           </OptionCustom>
           <TYPE.body style={{ paddingLeft: '8px' }} fontSize={14}>

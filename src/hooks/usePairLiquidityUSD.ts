@@ -6,7 +6,7 @@ import { useMemo } from 'react'
 import { ZERO_USD } from '../constants'
 
 const QUERY = gql`
-  query ($id: ID!) {
+  query($id: ID!) {
     pair(id: $id) {
       id
       reserveUSD
@@ -20,7 +20,7 @@ interface QueryResult {
 
 export function usePairLiquidityUSD(pair?: Pair | null): { loading: boolean; liquidityUSD: CurrencyAmount } {
   const { loading, data, error } = useQuery<QueryResult>(QUERY, {
-    variables: { id: pair?.liquidityToken.address.toLowerCase() },
+    variables: { id: pair?.liquidityToken.address.toLowerCase() }
   })
 
   return useMemo(() => {
@@ -30,7 +30,7 @@ export function usePairLiquidityUSD(pair?: Pair | null): { loading: boolean; liq
       loading,
       liquidityUSD: CurrencyAmount.usd(
         parseUnits(new Decimal(data.pair.reserveUSD).toFixed(USD.decimals), USD.decimals).toString()
-      ),
+      )
     }
   }, [data, error, loading])
 }

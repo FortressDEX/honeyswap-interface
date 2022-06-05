@@ -8,7 +8,10 @@ import { useNativeCurrency } from './useNativeCurrency'
 
 export function useNativeCurrencyPricedTokenAmounts(
   tokenAmounts?: TokenAmount[] | null
-): { loading: boolean; pricedTokenAmounts: PricedTokenAmount[] } {
+): {
+  loading: boolean
+  pricedTokenAmounts: PricedTokenAmount[]
+} {
   const { chainId } = useActiveWeb3React()
   const nativeCurrency = useNativeCurrency()
 

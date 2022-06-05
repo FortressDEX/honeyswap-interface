@@ -23,7 +23,11 @@ const ONE_HUNDRED_PERCENT = new Percent(JSBI.BigInt(10000), JSBI.BigInt(10000))
 // computes price breakdown for the trade
 export function computeTradePriceBreakdown(
   trade?: Trade
-): { priceImpactWithoutFee?: Percent; realizedLPFee?: Percent; realizedLPFeeAmount?: CurrencyAmount } {
+): {
+  priceImpactWithoutFee?: Percent
+  realizedLPFee?: Percent
+  realizedLPFeeAmount?: CurrencyAmount
+} {
   // for each hop in our trade, take away the x*y=k price impact from 0.3% fees
   // e.g. for 3 tokens/2 hops: 1 - ((1 - .03) * (1-.03))
   const realizedLPFee = !trade

@@ -12,7 +12,9 @@ import { useSingleContractMultipleData, useMultipleContractSingleData } from '..
  */
 export function useNativeCurrencyBalances(
   uncheckedAddresses?: (string | undefined)[]
-): { [address: string]: CurrencyAmount | undefined } {
+): {
+  [address: string]: CurrencyAmount | undefined
+} {
   const { chainId } = useActiveWeb3React()
   const multicallContract = useMulticallContract()
 
